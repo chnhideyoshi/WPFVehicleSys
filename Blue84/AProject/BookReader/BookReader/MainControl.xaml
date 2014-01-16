@@ -1,0 +1,223 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:BookReader"
+	xmlns:UpBan="clr-namespace:UpBan;assembly=UpBan"
+	mc:Ignorable="d"
+	x:Class="BookReader.MainControl"
+	x:Name="UserControl" Width="800" Height="480"
+	>
+	<UserControl.Resources>
+		<Style x:Key="MySimpleScrollRepeatButtonStyle" d:IsControlPart="True" TargetType="{x:Type RepeatButton}">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderBrush" Value="Transparent"/>
+			<Setter Property="IsTabStop" Value="false"/>
+			<Setter Property="Focusable" Value="false"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type RepeatButton}">
+						<Grid>
+							<Rectangle Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="MySimpleSliderThumb" d:IsControlPart="True" TargetType="{x:Type Thumb}">
+			<Setter Property="SnapsToDevicePixels" Value="true"/>
+			<Setter Property="Height" Value="14"/>
+			<Setter Property="Width" Value="14"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Thumb}">
+						<Grid>
+							
+							<Rectangle x:Name="Ellipse" StrokeThickness="0" RadiusY="4" RadiusX="4">
+								<Rectangle.Fill>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#FFE0E0E2" Offset="0"/>
+										<GradientStop Color="#FFE0E0E0" Offset="0.046"/>
+										<GradientStop Color="#FFDFE0E2" Offset="1"/>
+									</LinearGradientBrush>
+								</Rectangle.Fill>
+							</Rectangle>
+							<Path Data="M2.5708113,0.54585097 L2.7895597,0.77096202 1.1959106,2.0833806 3.0087562,3.317679 2.8051846,3.589662 0.7429243,2.046875 z" Fill="#FF767575" HorizontalAlignment="Left" Height="3.044" Margin="3.743,0,0,0" Stretch="Fill" VerticalAlignment="Center" Width="2.265" />
+							<Path Data="M2.9515081,0.57179396 L2.7637659,0.86396422 4.3758049,2.0250793 2.7635405,3.1480424 2.9980412,3.4449893 4.9538163,2.040706 z" Fill="#FF767575" HorizontalAlignment="Right" Height="2.872" Margin="0,0,4.195,0" Stretch="Fill" VerticalAlignment="Center" Width="2.187" />
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<LinearGradientBrush x:Key="ScrollBackBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FF92959A" Offset="0.083"/>
+			<GradientStop Color="#FF7A7A82" Offset="0.111"/>
+			<GradientStop Color="#FF7A7A82" Offset="0.194"/>
+			<GradientStop Color="#FF636469" Offset="0.222"/>
+			<GradientStop Color="#FF242623" Offset="0.972"/>
+		</LinearGradientBrush>
+		<Style x:Key="MySimpleSlider" TargetType="{x:Type Slider}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Slider}">
+						<Grid x:Name="GridRoot">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+							<Rectangle RadiusY="10" RadiusX="10" Fill="#72000000" Grid.RowSpan="2" Margin="0"/>
+							<!-- TickBar shows the ticks for Slider -->
+							<TickBar Visibility="Collapsed" x:Name="TopTick" Height="4" SnapsToDevicePixels="True" Placement="Top"/>
+							<Border Grid.Row="1" Margin="4,0" x:Name="Border" Height="7" Background="{DynamicResource ScrollBackBrush}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3"/>
+							
+							<!-- The Track lays out the repeat buttons and thumb -->
+							<Track Grid.Row="1" x:Name="PART_Track" Height="16" Orientation="Vertical" Margin="4">
+								<Track.Thumb>
+									<Thumb Style="{DynamicResource MySimpleSliderThumb}" Height="7" Width="38"/>
+								</Track.Thumb>
+								<Track.IncreaseRepeatButton>
+									<RepeatButton Style="{DynamicResource MySimpleScrollRepeatButtonStyle}" Command="Slider.IncreaseLarge"/>
+								</Track.IncreaseRepeatButton>
+								<Track.DecreaseRepeatButton>
+									<RepeatButton Style="{DynamicResource MySimpleScrollRepeatButtonStyle}" Command="Slider.DecreaseLarge"/>
+								</Track.DecreaseRepeatButton>
+							</Track>
+							
+							<TickBar Visibility="Collapsed" Grid.Row="2" x:Name="BottomTick" Height="4" SnapsToDevicePixels="True" Placement="Bottom" Fill="{TemplateBinding Foreground}"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="TickPlacement" Value="TopLeft">
+								<Setter Property="Visibility" Value="Visible" TargetName="TopTick"/>
+							</Trigger>
+							<Trigger Property="TickPlacement" Value="BottomRight">
+								<Setter Property="Visibility" Value="Visible" TargetName="BottomTick"/>
+							</Trigger>
+							<Trigger Property="TickPlacement" Value="Both">
+								<Setter Property="Visibility" Value="Visible" TargetName="TopTick"/>
+								<Setter Property="Visibility" Value="Visible" TargetName="BottomTick"/>
+							</Trigger>
+							<!-- Use a rotation to create a Vertical Slider form the default Horizontal -->
+							<Trigger Property="Orientation" Value="Vertical">
+								<Setter Property="LayoutTransform" TargetName="GridRoot">
+									<Setter.Value>
+										<RotateTransform Angle="-90"/>
+									</Setter.Value>
+								</Setter>
+								<!-- Track rotates itself based on orientation so need to force it back -->
+								<Setter TargetName="PART_Track" Property="Orientation" Value="Horizontal"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<DoubleAnimation x:Key="ANI_Switch" By="-600" Duration="00:00:06" FillBehavior="Stop">
+			<DoubleAnimation.EasingFunction>
+				<CubicEase EasingMode="EaseInOut"/>
+			</DoubleAnimation.EasingFunction>
+		</DoubleAnimation>
+		<Style x:Key="BackButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="VerticalAlignment" Value="Bottom"/>
+			<Setter Property="Width" Value="119.9"/>
+			<Setter Property="HorizontalAlignment" Value="Left"/>
+			<Setter Property="Height" Value="58.8"/>
+			<Setter Property="Margin" Value="0"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid Background="#00000000">
+							<Border CornerRadius="0,12,12,0" Margin="0,10,39,4">
+								<Border.Background>
+									<LinearGradientBrush EndPoint="0.993,0.539" StartPoint="0.053,0.534">
+										<GradientStop Color="#FF321702" Offset="0.016"/>
+										<GradientStop Color="#FF905706" Offset="0.844"/>
+										<GradientStop Color="#FF905F1A" Offset="1"/>
+									</LinearGradientBrush>
+								</Border.Background>
+								<ContentPresenter Margin="0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" d:LayoutOverrides="Width, Height" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+							</Border>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="FontFamily" Value="黑体"/>
+			<Setter Property="FontSize" Value="20"/>
+			<Setter Property="Foreground" Value="#FFE9E9E9"/>
+		</Style>
+		<Style x:Key="ListButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="VerticalAlignment" Value="Bottom"/>
+			<Setter Property="Width" Value="119.9"/>
+			<Setter Property="HorizontalAlignment" Value="right"/>
+			<Setter Property="Height" Value="58.8"/>
+			<Setter Property="Margin" Value="0"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid Background="#00000000">
+							<Border CornerRadius="12,0,0,12" Margin="39,10,0,4">
+								<Border.Background>
+									<LinearGradientBrush EndPoint="0.053,0.534" StartPoint="0.946,0.52">
+										<GradientStop Color="#FF321702" Offset="0.016"/>
+										<GradientStop Color="#FF905706" Offset="0.844"/>
+										<GradientStop Color="#FF905F1A" Offset="1"/>
+									</LinearGradientBrush>
+								</Border.Background>
+								<ContentPresenter Margin="0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" d:LayoutOverrides="Width, Height" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+							</Border>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="FontFamily" Value="黑体"/>
+			<Setter Property="FontSize" Value="20"/>
+			<Setter Property="Foreground" Value="#FFE9E9E9"/>
+		</Style>
+	</UserControl.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="82"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid.Background>
+			<ImageBrush ImageSource="Pictures/MainControl/MainBack.jpg"/>
+		</Grid.Background>
+		<Grid HorizontalAlignment="Left" Margin="24,42,0,83" Grid.Row="1" Width="75">
+			<Slider x:Name="SL_Down"  Height="271" Orientation="Vertical" Style="{DynamicResource MySimpleSlider}" RenderTransformOrigin="0.5,0.5" Margin="25,1,27,1" d:LayoutOverrides="GridBox">
+				<Slider.RenderTransform>
+					<RotateTransform Angle="180"/>
+				</Slider.RenderTransform>
+			</Slider>
+			<Canvas x:Name="CA_ExpSL" Background="#00000000" d:LayoutOverrides="GridBox"/>
+		</Grid>
+		<Canvas x:Name="CA_Main" Margin="99,34,27,0" VerticalAlignment="Top" Height="288" Background="#00000000" ClipToBounds="True" Grid.Row="1">
+			<StackPanel x:Name="STK_Main" Canvas.Left="0" Canvas.Top="0" RenderTransformOrigin="0.5,0.5" Margin="0" Width="{Binding ActualWidth, ElementName=CA_Main}" MinHeight="{Binding ActualHeight, ElementName=CA_Main}" Background="#00000000">
+				<StackPanel.RenderTransform>
+					<TranslateTransform x:Name="TTF_Stk" Y="0"/>
+				</StackPanel.RenderTransform>
+					
+			</StackPanel>
+				
+		</Canvas>
+		<UpBan:UpBanControl/>
+		<Button x:Name="BTN_BackHome" Content="退出"  Style="{DynamicResource BackButtonStyle}" Grid.Row="1" />
+		<Button x:Name="BTN_Switch" Content="功能"    Style="{DynamicResource ListButtonStyle}" IsTabStop="False" Grid.Row="1"/>
+		<ContentControl x:Name="CC_MainEXP" Grid.RowSpan="2" Visibility="Collapsed"/>
+		
+	</Grid>
+</UserControl>

@@ -1,0 +1,10 @@
+﻿<Window x:Class="UpBan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:local="clr-namespace:UpBan"
+        Title="MainWindow" Height="82" Width="800" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" Background="{x:Null}">
+	
+    <Grid>
+    	<local:UpBanControl/>
+    </Grid>
+</Window>

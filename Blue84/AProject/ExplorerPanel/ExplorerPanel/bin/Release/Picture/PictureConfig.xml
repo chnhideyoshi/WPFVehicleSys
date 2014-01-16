@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <ValidExtDirectoires>
+    <Directory value="C:\Users\Public\Pictures\Sample Pictures"/>
+  </ValidExtDirectoires>
+  <IsTopMost value="true"></IsTopMost>
+  <ThumbHeight value="150"/>
+  <ThumbWidth value="200"/>
+  <SmallHeight value="480"/>
+  <SmallWidth value="800"/>
+  <SupportedExtensionList>
+    <Extension value=".JPG"/>
+    <Extension value=".JPEG"/>
+    <Extension value=".BMP"/>
+    <Extension value=".GIF"/>
+    <Extension value=".PNG"/>
+  </SupportedExtensionList>
+</Settings>

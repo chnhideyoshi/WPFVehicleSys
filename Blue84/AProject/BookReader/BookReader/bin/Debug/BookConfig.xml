@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <ValidExtDirectoires>
+    <Directory value="G:\kankan"/>
+  </ValidExtDirectoires>
+  <IsEnableSpeech value="true"/>
+  <IsTopMost value="true"/>
+  <FontSize value="21"></FontSize>
+</Settings>

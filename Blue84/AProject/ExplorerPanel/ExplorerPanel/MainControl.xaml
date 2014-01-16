@@ -1,0 +1,280 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:ExplorerPanel"
+	mc:Ignorable="d"
+	x:Class="ExplorerPanel.MainControl"
+	x:Name="UserControl"
+	Width="800" Height="480">
+	<UserControl.Resources>
+		<Style x:Key="TBKstyle" TargetType="{x:Type TextBlock}">
+			<Setter Property="VerticalAlignment" Value="Bottom"/>
+			<Setter Property="TextAlignment" Value="Center"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontSize" Value="16"/>
+			<Setter Property="Margin" Value="0,0,0,16"/>
+		</Style>
+		<Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+			<Setter Property="Width" Value="40"/>
+			<Setter Property="Height" Value="75"/>
+			<Setter Property="VerticalAlignment" Value="Top"/>
+			<Setter Property="Margin" Value="0,13,0,0"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid Background="{x:Null}">
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="CommonStates">
+									<VisualState x:Name="Normal"/>
+									<VisualState x:Name="MouseOver">
+										<Storyboard>
+											<DoubleAnimation Duration="0:0:0.25" To="0.415" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Pressed"/>
+									<VisualState x:Name="Disabled"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Rectangle Fill="{TemplateBinding Foreground}" VerticalAlignment="Top" Height="40"/>
+							<Rectangle x:Name="rectangle" Opacity="0" Fill="White" RadiusY="6" RadiusX="6"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<LinearGradientBrush x:Key="DownBanBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FF1F1E1A" Offset="0"/>
+			<GradientStop Color="#FF575652" Offset="0.011"/>
+			<GradientStop Color="#FF2B2A28" Offset="0.574"/>
+			<GradientStop Color="#FF11100E" Offset="0.585"/>
+			<GradientStop Color="#FF101010" Offset="0.989"/>
+			<GradientStop Color="#FF2B2B2B" Offset="1"/>
+		</LinearGradientBrush>
+		<Style x:Key="DownButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<ControlTemplate.Resources>
+							<Storyboard x:Key="Storyboard1">
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="RecHover">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+								</ObjectAnimationUsingKeyFrames>
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid>
+							<Rectangle x:Name="RecHover" Visibility="Hidden" >
+								<Rectangle.Fill>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#FFFFBF75" Offset="0.008"/>
+										<GradientStop Color="#FFFFAF50" Offset="0.016"/>
+										<GradientStop Color="#FFE68E12" Offset="0.959"/>
+									</LinearGradientBrush>
+								</Rectangle.Fill>
+							</Rectangle>
+							<Rectangle Fill="Black" HorizontalAlignment="Left" Width="1">
+								<Rectangle.OpacityMask>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="Black" Offset="0.318"/>
+										<GradientStop Offset="1"/>
+										<GradientStop Color="#00000000"/>
+										<GradientStop Color="#FF545454" Offset="0.778"/>
+									</LinearGradientBrush>
+								</Rectangle.OpacityMask>
+							</Rectangle>
+							<Rectangle Fill="#FF818181" HorizontalAlignment="Right" Width="1" d:IsLocked="True">
+								<Rectangle.OpacityMask>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="Black" Offset="0.318"/>
+										<GradientStop Offset="1"/>
+										<GradientStop Color="#00000000"/>
+										<GradientStop Color="#FF545454" Offset="0.778"/>
+									</LinearGradientBrush>
+								</Rectangle.OpacityMask>
+							</Rectangle>
+							<TextBlock Text="{TemplateBinding Tag}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50,0,0,0" FontSize="21.333" Foreground="White" FontFamily="黑体"></TextBlock>
+							<ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<EventTrigger RoutedEvent="Mouse.MouseEnter">
+								<BeginStoryboard x:Name="Storyboard1_BeginStoryboard" Storyboard="{StaticResource Storyboard1}"/>
+							</EventTrigger>
+							<EventTrigger RoutedEvent="Mouse.MouseLeave">
+								<RemoveStoryboard BeginStoryboardName="Storyboard1_BeginStoryboard"/>
+							</EventTrigger>
+						</ControlTemplate.Triggers>
+		
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="MySimpleScrollRepeatButtonStyle" d:IsControlPart="True" TargetType="{x:Type RepeatButton}">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderBrush" Value="Transparent"/>
+			<Setter Property="IsTabStop" Value="false"/>
+			<Setter Property="Focusable" Value="false"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type RepeatButton}">
+						<Grid>
+							<Rectangle Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+			<Style x:Key="MySimpleSliderThumb" d:IsControlPart="True" TargetType="{x:Type Thumb}">
+			<Setter Property="SnapsToDevicePixels" Value="true"/>
+			<Setter Property="Height" Value="14"/>
+			<Setter Property="Width" Value="14"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Thumb}">
+						<Grid>
+							
+							<Rectangle x:Name="Ellipse" StrokeThickness="0" RadiusY="4" RadiusX="4">
+								<Rectangle.Fill>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#FFE0E0E2" Offset="0"/>
+										<GradientStop Color="#FFE0E0E0" Offset="0.046"/>
+										<GradientStop Color="#FFDFE0E2" Offset="1"/>
+									</LinearGradientBrush>
+								</Rectangle.Fill>
+							</Rectangle>
+							<Path Data="M2.5708113,0.54585097 L2.7895597,0.77096202 1.1959106,2.0833806 3.0087562,3.317679 2.8051846,3.589662 0.7429243,2.046875 z" Fill="#FF767575" HorizontalAlignment="Left" Height="3.044" Margin="3.743,0,0,0" Stretch="Fill" VerticalAlignment="Center" Width="2.265" />
+							<Path Data="M2.9515081,0.57179396 L2.7637659,0.86396422 4.3758049,2.0250793 2.7635405,3.1480424 2.9980412,3.4449893 4.9538163,2.040706 z" Fill="#FF767575" HorizontalAlignment="Right" Height="2.872" Margin="0,0,4.195,0" Stretch="Fill" VerticalAlignment="Center" Width="2.187" />
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<LinearGradientBrush x:Key="ScrollBackBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FF92959A" Offset="0.083"/>
+			<GradientStop Color="#FF7A7A82" Offset="0.111"/>
+			<GradientStop Color="#FF7A7A82" Offset="0.194"/>
+			<GradientStop Color="#FF636469" Offset="0.222"/>
+			<GradientStop Color="#FF242623" Offset="0.972"/>
+		</LinearGradientBrush>
+	
+		<Style x:Key="MySimpleSlider" TargetType="{x:Type Slider}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Slider}">
+						<Grid x:Name="GridRoot">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+							<Rectangle RadiusY="10" RadiusX="10" Fill="#72000000" Grid.RowSpan="2" Margin="0"></Rectangle>
+							<!-- TickBar shows the ticks for Slider -->
+							<TickBar Visibility="Collapsed" x:Name="TopTick" Height="4" SnapsToDevicePixels="True" Placement="Top"/>
+							<Border Grid.Row="1" Margin="4,0" x:Name="Border" Height="7" Background="{DynamicResource ScrollBackBrush}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3"/>
+							
+							<!-- The Track lays out the repeat buttons and thumb -->
+							<Track Grid.Row="1" x:Name="PART_Track" Height="16" Orientation="Vertical" Margin="4">
+								<Track.Thumb>
+									<Thumb Style="{DynamicResource MySimpleSliderThumb}" Height="7" Width="38"/>
+								</Track.Thumb>
+								<Track.IncreaseRepeatButton>
+									<RepeatButton Style="{DynamicResource MySimpleScrollRepeatButtonStyle}" Command="Slider.IncreaseLarge"/>
+								</Track.IncreaseRepeatButton>
+								<Track.DecreaseRepeatButton>
+									<RepeatButton Style="{DynamicResource MySimpleScrollRepeatButtonStyle}" Command="Slider.DecreaseLarge"/>
+								</Track.DecreaseRepeatButton>
+							</Track>
+							
+							<TickBar Visibility="Collapsed" Grid.Row="2" x:Name="BottomTick" Height="4" SnapsToDevicePixels="True" Placement="Bottom" Fill="{TemplateBinding Foreground}"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="TickPlacement" Value="TopLeft">
+								<Setter Property="Visibility" Value="Visible" TargetName="TopTick"/>
+							</Trigger>
+							<Trigger Property="TickPlacement" Value="BottomRight">
+								<Setter Property="Visibility" Value="Visible" TargetName="BottomTick"/>
+							</Trigger>
+							<Trigger Property="TickPlacement" Value="Both">
+								<Setter Property="Visibility" Value="Visible" TargetName="TopTick"/>
+								<Setter Property="Visibility" Value="Visible" TargetName="BottomTick"/>
+							</Trigger>
+							<!-- Use a rotation to create a Vertical Slider form the default Horizontal -->
+							<Trigger Property="Orientation" Value="Vertical">
+								<Setter Property="LayoutTransform" TargetName="GridRoot">
+									<Setter.Value>
+										<RotateTransform Angle="-90"/>
+									</Setter.Value>
+								</Setter>
+								<!-- Track rotates itself based on orientation so need to force it back -->
+								<Setter TargetName="PART_Track" Property="Orientation" Value="Horizontal"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
+	<Grid x:Name="LayotRoot">
+		<Canvas   Background="#FFD9D9D9" Margin="0" ClipToBounds="True" Width="800" VerticalAlignment="Top" Height="420">
+			<local:LeftStack x:Name="UC_LeftStack" Height="420"/>
+			<Grid Canvas.Left="110" Width="56" Height="420">
+				<Slider x:Name="SL_Down" Width="23" Orientation="Vertical" Style="{DynamicResource MySimpleSlider}" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Margin="0,32,0,36" Canvas.Left="9" Canvas.Top="13">
+					<Slider.RenderTransform>
+						<RotateTransform Angle="180"/>
+					</Slider.RenderTransform>
+				</Slider>
+				<Canvas x:Name="CA_ExpSL" Margin="0,32,0,36" Background="#00000000"/>
+			</Grid>
+			<Canvas x:Name="CA_DownPanel" Canvas.Left="170" Width="630" Height="420" ClipToBounds="True" Canvas.Top="0" Margin="-9,0,0,0">
+				<StackPanel x:Name="STK_MainContainer" Canvas.Left="0" Canvas.Top="0" Width="{Binding ActualWidth, ElementName=CA_DownPanel}">
+					<local:FileItem FileName="文件夹1"  />
+					<local:FileItem FileName="文件夹2" />
+					<local:FileItem FileName="音乐文件1" HeadImage="Music"/>
+					<local:FileItem FileName="视频1" HeadImage="Video"  />
+					<local:FileItem FileName="图片1" HeadImage="Picture"  />
+					<local:FileItem FileName="普通文件1" HeadImage="File"  />
+				</StackPanel>
+			</Canvas>
+		</Canvas>
+		<Grid VerticalAlignment="Bottom" Height="60">
+			<Grid.Background>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF363636" Offset="0.641"/>
+					<GradientStop Color="#FF535353" Offset="0.988"/>
+					<GradientStop Color="#FFEEF3FA" Offset="1"/>
+				</LinearGradientBrush>
+			</Grid.Background>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.2*"/>
+				<ColumnDefinition Width="0.2*"/>
+				<ColumnDefinition Width="0.2*"/>
+				<ColumnDefinition Width="0.2*"/>
+				<ColumnDefinition Width="0.2*"/>
+			</Grid.ColumnDefinitions>
+			<!--
+			<Button x:Name="BTN_AllDrivers" Style="{DynamicResource DownButtonStyle}" Tag="所有磁盘">
+				<Path x:Name="PH_Back" Data="M29.71652,5.5300005 L12.029073,5.5924991 5.0289997,23.091996 13.717,23.154499 13.717,30.091999 28.529499,30.091999 28.529499,22.998249 36.653999,22.966996 z M9.0500793,0.05 L32.716923,0.21666917 42.050003,22.800335 42.049999,38.383667 0.21666668,38.55 0.05,22.216999 z" Height="29.6" Canvas.Left="26.742" Stretch="Fill" Stroke="Black" StrokeThickness="0.1" Canvas.Top="470.95" Width="33.1" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-90,0,0,0"/>
+			</Button>
+			-->
+			<Button x:Name="BTN_SelectAll" Style="{DynamicResource DownButtonStyle}" Tag="全选" Grid.Column="1">
+				<Path Data="M3.2786103,3.517 L24.737534,3.6003321 22.988033,5.8814686 4.0500055,5.7257283 C3.1478208,5.7818532 2.7001685,6.2925075 2.6125036,7.1631473 L2.7994519,29.287541 C2.8387197,30.006821 3.1851982,30.46548 3.8619336,30.662524 L24.67407,30.662524 C25.84473,30.546454 26.44338,30.015885 26.42404,29.037499 L26.174044,16.6 28.486504,14.6 28.674,30.599999 C28.508417,32.114341 27.678799,32.715298 26.424502,32.724997 L2.4875031,32.849999 C1.0375077,32.463137 0.24364114,31.485797 0.11250019,29.912034 L0.05,6.7877357 C0.3473233,5.0274803 1.3964898,3.9139773 3.2786103,3.517 z M34.424339,0.05 L35.678997,1.8431818 C27.55316,9.3808315 21.509907,18.083137 17.39675,27.504 L4.6200005,13.915395 8.0123893,11.434487 15.305055,16.960145 C20.50413,10.741541 27.394766,5.2126523 34.424339,0.05 z" Height="34.9" Width="36.7" Fill="White" StrokeThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-62,1,0,0"/>
+			</Button>
+			<Button x:Name="BTN_CancelSelectAll" Style="{DynamicResource DownButtonStyle}" Tag="取消选择" Visibility="Collapsed" Grid.Column="1">
+				<Rectangle HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30" Stroke="White" StrokeThickness="3" RadiusX="3" RadiusY="3" Margin="-69,2,0,0"/>
+			</Button>
+			<Button x:Name="BTN_OK" Style="{DynamicResource DownButtonStyle}" Grid.Column="2" Tag="导入">
+				<Path Data="M17.149999,9.4000004 L49.900002,33.400001 17.149999,56.649998 17.150001,41.900001 0.15,41.649998 0.15,25.149999 16.65,25.149999 z M64.483002,0.15 L63.983338,66.484001 8.483664,66.316665 8.4667881,59.64983 56.400002,59.649998 56.650002,7.1500004 8.3345113,7.3988999 8.3170028,0.48333327 z" Height="33" Canvas.Left="312" Stretch="Fill" StrokeThickness="0" Canvas.Top="32" Width="33.633" Fill="White" Margin="-68,0,0,0"/>
+			</Button>
+			<Button x:Name="BTN_Cancel" Style="{DynamicResource DownButtonStyle}" Tag="退出">
+				<Path Data="M16.095624,21.488946 L16.095624,26.1832 33.441634,26.076406 C41.005159,26.150375 41.210411,3.7667931 33.535816,3.3516825 L16.284167,3.3516825 16.284167,-1.2355111 34.163924,-1.2650631 C46.404263,-1.369405 46.483623,30.505864 33.748112,30.397257 L16.189895,30.557392 15.90708,35.14453 6.9512597,28.316465 z" Fill="White" Height="25.4" Stretch="Fill" Width="35.2" Canvas.Left="17.909" Canvas.Top="358.6" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-75,0,0,0"/>
+			</Button>
+			<Button x:Name="BTN_Include" Style="{DynamicResource DownButtonStyle}" Grid.Column="3" Tag="包含文件">
+				<Path Data="M9.6669999,0 L16.604,0 16.604,9.6669998 26.271,9.6669998 26.271,16.604 16.604,16.604 16.604,26.271 9.6669999,26.271 9.6669999,16.604 0,16.604 0,9.6669998 9.6669999,9.6669998 z" Fill="White" Height="26.271" Canvas.Left="413.729" RenderTransformOrigin="0.499999994772597,0.500000001742468" Stretch="Fill" StrokeThickness="0" Canvas.Top="118.792" Width="26.271" Margin="-88,0,0,0"/>
+			</Button>
+			<Button x:Name="BTN_Delete" Style="{DynamicResource DownButtonStyle}" Grid.Column="4" Tag="删除">
+				<Path Data="M27.4165,21.812 C26.427082,21.811999 25.625,22.70743 25.625,23.811999 L25.625,40.959 C25.625,42.063568 26.427082,42.959 27.4165,42.959 28.405918,42.959 29.208,42.063568 29.208,40.959 L29.208,23.811999 C29.208,22.70743 28.405918,21.811999 27.4165,21.812 z M19.8335,21.812 C18.844082,21.811999 18.042,22.70743 18.042,23.811999 L18.042,40.959 C18.042,42.063568 18.844082,42.959 19.8335,42.959 20.822918,42.959 21.625,42.063568 21.625,40.959 L21.625,23.811999 C21.625,22.70743 20.822918,21.811999 19.8335,21.812 z M12.2505,21.812 C11.261082,21.811999 10.459,22.70743 10.459,23.811999 L10.459,40.959 C10.459,42.063568 11.261082,42.959 12.2505,42.959 13.239918,42.959 14.042,42.063568 14.042,40.959 L14.042,23.811999 C14.042,22.70743 13.239918,21.811999 12.2505,21.812 z M4.5419999,17.521999 L35.542,17.521999 35.542,48.417 4.5419999,48.417 z M14.417,3.1253328 C13.838875,3.125082 13.218183,3.6877174 13.208667,4.5836658 L13.208667,5.9169989 26.370125,5.838875 26.375332,4.6253328 C26.36911,3.9081697 25.844082,3.1823816 25.250332,3.1669989 z M26.479668,0 C30.26075,0.041999817 30.282568,3.3216333 30.312832,5.8961658 L37.271168,5.9586658 C38.406582,5.9694166 39.349792,7.2761765 39.333668,7.9794989 L39.375,14.479999 0,14.385499 0.041999817,8.0419989 C0.052666187,7.2709846 0.63202739,5.9705515 1.7919998,5.9586658 L9.1878338,5.9169989 C9.2199597,3.4914293 9.1669998,0.22949982 12.646334,0.083662033 z" Height="34.4" Canvas.Left="26.742" Stretch="Fill" StrokeThickness="0" Canvas.Top="216" Width="29.4" Fill="White" Margin="-69,0,0,0"/>
+			</Button>
+		</Grid>
+		
+	</Grid>
+</UserControl>

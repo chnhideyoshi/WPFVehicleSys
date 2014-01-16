@@ -1,0 +1,164 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:PictureBrowserPanel"
+	xmlns:UpBan="clr-namespace:UpBan;assembly=UpBan"
+	mc:Ignorable="d"
+	x:Class="PictureBrowserPanel.MainControl"
+	x:Name="UserControl" Width="800" Height="480" RenderTransformOrigin="0.5,0.5"
+	>
+	<UserControl.Resources>
+		<Style x:Key="BackButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="VerticalAlignment" Value="Bottom"/>
+			<Setter Property="Width" Value="119.9"/>
+			<Setter Property="HorizontalAlignment" Value="Left"/>
+			<Setter Property="Height" Value="58.8"/>
+			<Setter Property="Margin" Value="0"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid Background="#00000000">
+							<Border CornerRadius="0,12,12,0" Margin="0,10,39,4">
+								<Border.Background>
+									<LinearGradientBrush EndPoint="0.053,0.534" StartPoint="0.946,0.52">
+										<GradientStop Color="#FF321702" Offset="0.984"/>
+										<GradientStop Color="#FF905706" Offset="0.156"/>
+										<GradientStop Color="#FF905F1A"/>
+									</LinearGradientBrush>
+								</Border.Background>
+								<ContentPresenter Margin="0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" d:LayoutOverrides="Width, Height" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+							</Border>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="FontFamily" Value="黑体"/>
+			<Setter Property="FontSize" Value="20"/>
+			<Setter Property="Foreground" Value="#FFE9E9E9"/>
+		</Style>
+		<Style x:Key="ListButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="VerticalAlignment" Value="Bottom"/>
+			<Setter Property="Width" Value="119.9"/>
+			<Setter Property="HorizontalAlignment" Value="right"/>
+			<Setter Property="Height" Value="58.8"/>
+			<Setter Property="Margin" Value="0"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid Background="#00000000">
+							<Border CornerRadius="12,0,0,12" Margin="39,10,0,4">
+								<Border.Background>
+									<LinearGradientBrush EndPoint="0.053,0.534" StartPoint="0.946,0.52">
+										<GradientStop Color="#FF321702" Offset="0.016"/>
+										<GradientStop Color="#FF905706" Offset="0.844"/>
+										<GradientStop Color="#FF905F1A" Offset="1"/>
+									</LinearGradientBrush>
+								</Border.Background>
+								<ContentPresenter Margin="0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" d:LayoutOverrides="Width, Height" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+							</Border>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="FontFamily" Value="黑体"/>
+			<Setter Property="FontSize" Value="20"/>
+			<Setter Property="Foreground" Value="#FFE9E9E9"/>
+		</Style>
+		<Style x:Key="StateCheckBoxStyle" TargetType="{x:Type CheckBox}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type CheckBox}">
+						<ControlTemplate.Resources>
+							<Storyboard x:Key="Storyboard1">
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="GD1">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+								</ObjectAnimationUsingKeyFrames>
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="GD2">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+								</ObjectAnimationUsingKeyFrames>
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid Background="#00000000">
+							<Grid Margin="14,9,16,10">
+								<Grid x:Name="GD1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="0.5*"/>
+										<ColumnDefinition Width="0.5*"/>
+									</Grid.ColumnDefinitions>
+									<Path Data="M17.062001,17.75 L29.312001,17.75 29.312001,30.417 17.062001,30.417 z M0,17.75 L12.25,17.75 12.25,30.417 0,30.417 z M17.062001,0 L29.312001,0 29.312001,12.667 17.062001,12.667 z M0,0 L12.25,0 12.25,12.667 0,12.667 z" Fill="#FFFFD200" Height="18.25"  Stretch="Fill" StrokeThickness="0" Width="17.979"/>
+									<Path Data="M12.709,4.8950006 L35.521,4.8950006 35.521,28.562001 12.709,28.562001 z M37.459,2.7950005 L40.459,2.7950005 40.459,30.295001 37.459,30.295001 z M6.3759995,2.7950005 L9.3759995,2.7950005 9.3759995,30.295001 6.3759995,30.295001 z M0,7.0844591E-07 L2.3759995,7.0844591E-07 2.3759995,34.000001 0,34.000001 z M45.167,0 L47.543,0 47.543,34.000001 45.167,34.000001 z" Fill="#FF5C2D06" Height="18.25"  Stretch="Fill" StrokeThickness="0"  Width="21.543" Grid.Column="1"/>
+								</Grid>
+								<Grid x:Name="GD2" Visibility="Collapsed">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="0.5*"/>
+										<ColumnDefinition Width="0.5*"/>
+									</Grid.ColumnDefinitions>
+									<Path Data="M17.062001,17.75 L29.312001,17.75 29.312001,30.417 17.062001,30.417 z M0,17.75 L12.25,17.75 12.25,30.417 0,30.417 z M17.062001,0 L29.312001,0 29.312001,12.667 17.062001,12.667 z M0,0 L12.25,0 12.25,12.667 0,12.667 z" Fill="#FF5C2D06" Height="18.25"  Stretch="Fill" StrokeThickness="0" Width="17.979"/>
+									<Path Data="M12.709,4.8950006 L35.521,4.8950006 35.521,28.562001 12.709,28.562001 z M37.459,2.7950005 L40.459,2.7950005 40.459,30.295001 37.459,30.295001 z M6.3759995,2.7950005 L9.3759995,2.7950005 9.3759995,30.295001 6.3759995,30.295001 z M0,7.0844591E-07 L2.3759995,7.0844591E-07 2.3759995,34.000001 0,34.000001 z M45.167,0 L47.543,0 47.543,34.000001 45.167,34.000001 z" Fill="#FFFFD200" Height="18.25"  Stretch="Fill" StrokeThickness="0"  Width="21.543" Grid.Column="1"/>
+								</Grid>
+							</Grid>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsChecked" Value="True">
+								<Trigger.EnterActions>
+									<BeginStoryboard x:Name="Storyboard1_BeginStoryboard" Storyboard="{StaticResource Storyboard1}"/>
+								</Trigger.EnterActions>
+							</Trigger>
+							<Trigger Property="IsChecked" Value="False">
+								<Trigger.EnterActions>
+									<RemoveStoryboard BeginStoryboardName="Storyboard1_BeginStoryboard"/>
+								</Trigger.EnterActions>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<DoubleAnimation x:Key="ANI_ExpInOut" FillBehavior="HoldEnd" From="0" To="1" Duration="00:00:00.2"/>
+		<Storyboard x:Key="STB_ExpIn">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CC_MainHolder">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="STB_ExpOut">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CC_MainHolder">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+	<Grid x:Name="LayoutRoot">
+		<Grid.Background>
+			<ImageBrush ImageSource="Pictures/MainControl/MainBack.jpg"/>
+		</Grid.Background>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="82"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<ContentControl x:Name="CC_ListShower" Grid.RowSpan="1" Grid.Row="1" Background="#FF272727" Margin="0"/>
+		<ContentControl x:Name="CC_SwitchShower" Grid.RowSpan="1" Grid.Row="1" Background="#FF272727"/>
+        <UpBan:UpBanControl/>
+        <CheckBox x:Name="CKB_Switch" HorizontalAlignment="Left" Margin="688.7,62,0,0" Style="{StaticResource StateCheckBoxStyle}" Width="97.9" VerticalAlignment="Top" Height="48" Background="Black" Grid.RowSpan="2" IsTabStop="False" IsHitTestVisible="True"/>
+		<Button x:Name="BTN_BackHome" Content="退出"  Style="{StaticResource BackButtonStyle}"  Grid.Row="1"/>
+		<Button x:Name="BTN_Switch" Content="功能"  Style="{StaticResource ListButtonStyle}"  Grid.Row="1"/>
+		<ContentControl x:Name="CC_MainHolder" Grid.RowSpan="2" Grid.Row="0" Background="#FF272727" d:IsHidden="True"/>
+		
+	</Grid>
+</UserControl>

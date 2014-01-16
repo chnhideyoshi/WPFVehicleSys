@@ -1,0 +1,207 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="PictureBrowserPanel.HorizontalScrollPanel"
+	x:Name="UserControl"
+	Width="800" Height="100">
+	<UserControl.Resources>
+		<Style x:Key="StackPanelStyle" TargetType="StackPanel">
+			<Setter Property="Height" Value="80"></Setter>
+			<Setter Property="Width" Value="Auto"></Setter>
+			<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"></Setter>
+			<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"></Setter>
+			<Setter Property="Orientation" Value="Horizontal"></Setter>
+		</Style>
+		<!--
+		<Style x:Key="LeftButtonStyle" TargetType="Control">
+			<Setter Property="Height" Value="80"></Setter> 
+			<Setter Property="VerticalAlignment" Value="Top"></Setter> 
+			<Setter Property="FontSize" Value="12"></Setter>
+			<Setter Property="Foreground" Value="White"></Setter> 
+		</Style>
+		-->
+		<ControlTemplate x:Key="ButtonControlTemplate1" TargetType="{x:Type Control}">
+			<Grid x:Name="grid">
+				<Rectangle Fill="{TemplateBinding Background}"/>
+				<Path x:Name="path" Data="M68,2 L75.75,7.0831728 68.041667,12.541667 z" Margin="48,0,0,0" Stretch="Fill" HorizontalAlignment="Center" Width="8.584" Fill="White" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="17">
+					<Path.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform ScaleX="-1"/>
+							<SkewTransform/>
+							<RotateTransform/>
+							<TranslateTransform/>
+						</TransformGroup>
+					</Path.RenderTransform>
+				</Path>
+			</Grid>
+		</ControlTemplate>
+		<ControlTemplate x:Key="ButtonControlTemplate2" TargetType="{x:Type Control}">
+			<Grid x:Name="grid">
+				<Rectangle Fill="{TemplateBinding Background}"/>
+				<Path x:Name="path" Data="M68,2 L75.75,7.0831728 68.041667,12.541667 z" Margin="0,0,48,0" Stretch="Fill" HorizontalAlignment="Center" Width="7.75" Fill="White" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Height="17.5">
+					<Path.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform/>
+							<SkewTransform/>
+							<RotateTransform/>
+							<TranslateTransform/>
+						</TransformGroup>
+					</Path.RenderTransform>
+				</Path>
+			</Grid>
+		</ControlTemplate>
+		<!--
+		<Style x:Key="ImageButtonStyle1" TargetType="Button">
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="Foreground" Value="#FF494949"/>
+			<Setter Property="Height" Value="100"></Setter>
+			<Setter Property="Width" Value="100"></Setter>	
+			<Setter Property="Margin" Value="0"/>
+			<Setter Property="HorizontalAlignment" Value="Left"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="HorizontalContentAlignment" Value="Left"/>
+			<Setter Property="VerticalContentAlignment" Value="Top"/>
+			<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<ControlTemplate.Resources>
+						<Storyboard x:Key="OnMouseEnter1">
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="rectangle2">
+								<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="12">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<CubicEase EasingMode="EaseOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<CubicEase EasingMode="EaseOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle2">
+									<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.9">
+										<EasingDoubleKeyFrame.EasingFunction>
+											<CubicEase EasingMode="EaseOut"/>
+										</EasingDoubleKeyFrame.EasingFunction>
+									</EasingDoubleKeyFrame>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangleflash">
+									<EasingDoubleKeyFrame KeyTime="0" Value="0.05"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.515"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+								<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle2">
+									<EasingColorKeyFrame KeyTime="0:0:0.4" Value="#B1000000"/>
+									<EasingColorKeyFrame KeyTime="0:0:0.7" Value="#A5000000"/>
+								</ColorAnimationUsingKeyFrames>
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid x:Name="grid">
+							<Rectangle x:Name="mainrec" Fill="{TemplateBinding Foreground}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" StrokeThickness="{TemplateBinding BorderThickness}" Margin="0" Stroke="Black" />
+							<Rectangle x:Name="rectangle2" Fill="{x:Null}" Opacity="0" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" StrokeThickness="6" RadiusY="0" Stroke="#5E000000" />
+							<Rectangle x:Name="rectangleflash" Opacity="0"  Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" StrokeThickness="0" Fill="White" ></Rectangle>
+						</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Trigger.EnterActions>
+								<BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}"/>
+							</Trigger.EnterActions>
+						</Trigger>
+						<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+					</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		-->
+		<Style x:Key="ImageControlStyle1" TargetType="Control">
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="Foreground" Value="#FF494949"/>
+			<Setter Property="Height" Value="100"></Setter>
+			<Setter Property="Width" Value="100"></Setter>	
+			<Setter Property="Margin" Value="0"/>
+			<Setter Property="HorizontalAlignment" Value="Left"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="HorizontalContentAlignment" Value="Left"/>
+			<Setter Property="VerticalContentAlignment" Value="Top"/>
+			<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Control">
+					<ControlTemplate.Resources>
+						<Storyboard x:Key="OnMouseEnter1">
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="rectangle2">
+								<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="12">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<CubicEase EasingMode="EaseOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<CubicEase EasingMode="EaseOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle2">
+									<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.9">
+										<EasingDoubleKeyFrame.EasingFunction>
+											<CubicEase EasingMode="EaseOut"/>
+										</EasingDoubleKeyFrame.EasingFunction>
+									</EasingDoubleKeyFrame>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangleflash">
+									<EasingDoubleKeyFrame KeyTime="0" Value="0.05"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.515"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+								<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle2">
+									<EasingColorKeyFrame KeyTime="0:0:0.4" Value="#B1000000"/>
+									<EasingColorKeyFrame KeyTime="0:0:0.7" Value="#A5000000"/>
+								</ColorAnimationUsingKeyFrames>
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid x:Name="grid">
+							<Rectangle x:Name="mainrec" Fill="{TemplateBinding Foreground}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" StrokeThickness="{TemplateBinding BorderThickness}" Margin="0" Stroke="Black" />
+							<Rectangle x:Name="rectangle2" Fill="{x:Null}" Opacity="0" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" StrokeThickness="6" RadiusY="0" Stroke="#5E000000" />
+							<Rectangle x:Name="rectangleflash" Opacity="0"  Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" StrokeThickness="0" Fill="White" ></Rectangle>
+						</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Trigger.EnterActions>
+								<BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}"/>
+							</Trigger.EnterActions>
+						</Trigger>
+						<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+					</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<DoubleAnimation x:Key="FolderRight" FillBehavior="Stop" Duration="0:00:0.5" IsAdditive="True" By="-600">
+			<DoubleAnimation.EasingFunction> 
+                  <CubicEase EasingMode="EaseOut"/>
+            </DoubleAnimation.EasingFunction> 
+		</DoubleAnimation>
+		<DoubleAnimation x:Key="FolderLeft" FillBehavior="HoldEnd" Duration="0:00:0.5" IsAdditive="True" From="-600" By="600" >
+			 <DoubleAnimation.EasingFunction> 
+                    <CubicEase EasingMode="EaseOut"/>
+             </DoubleAnimation.EasingFunction> 
+		</DoubleAnimation>
+	</UserControl.Resources>
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="100"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="100"/>
+		</Grid.ColumnDefinitions>
+		<Control x:Name="BTN_Left1st" Height="100" Template="{StaticResource ButtonControlTemplate1}" Background="#00000000" />
+		<Canvas x:Name="CA_Main" Grid.Column="1" ClipToBounds="True">
+			<StackPanel x:Name="STK_Main" Canvas.Left="0" Canvas.Top="0" Style="{StaticResource StackPanelStyle}" Height="100"/>
+		</Canvas>
+		<Control x:Name="BTN_Right1st" Height="100" VerticalAlignment="Top" Template="{StaticResource ButtonControlTemplate2}" Grid.Column="2" Panel.ZIndex="1" Background="#00000000"/>
+	</Grid>
+</UserControl>

@@ -1,0 +1,137 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:VideoPanel"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="VideoPanel.VideoConsole3Part"
+	x:Name="Window"
+	Title="VideoConsole3Part"
+	Width="800" Height="480" Background="#00000000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True" WindowStyle="None" AllowsTransparency="True">
+	<Window.Resources>
+		<Style x:Key="DownPlayButtonStyle1" TargetType="{x:Type Button}">
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="Height" Value="50"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="Width" Value="50"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<ControlTemplate.Resources>
+							<Storyboard x:Key="Storyboard1">
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+								</ObjectAnimationUsingKeyFrames>
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid Background="#00000000">
+							<ContentPresenter Margin="0"/>
+							
+							<Ellipse x:Name="ellipse" Margin="-11,0" Visibility="Hidden">
+								<Ellipse.Fill>
+									<RadialGradientBrush RadiusX="0.387" RadiusY="0.365">
+										<GradientStop Color="#FDFFEA00"/>
+										<GradientStop Color="#00FFEA00" Offset="1"/>
+										<GradientStop Color="#46FFEA00" Offset="0.619"/>
+										<GradientStop Color="#7BFFEA00" Offset="0.288"/>
+										<GradientStop Color="#17FFEA00" Offset="0.86"/>
+									</RadialGradientBrush>
+								</Ellipse.Fill>
+							</Ellipse>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Trigger.EnterActions>
+									<BeginStoryboard x:Name="Storyboard1_BeginStoryboard" Storyboard="{StaticResource Storyboard1}"/>
+								</Trigger.EnterActions>
+								<Trigger.ExitActions>
+									<RemoveStoryboard BeginStoryboardName="Storyboard1_BeginStoryboard"/>
+								</Trigger.ExitActions>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+							<Trigger Property="IsCancel" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Path x:Key="PH_KuaiTui" Data="M0,0 L18.037382,9.1766542 18,5.3964557E-07 36.215,9.2670196 18.075834,18.616001 18.038122,9.3581823 0.075833155,18.616 z" Fill="White" RenderTransformOrigin="0.5,0.5" Stretch="Fill" VerticalAlignment="Center" Height="18" HorizontalAlignment="Center" Width="36" Margin="0,0,7,0">
+			<Path.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="-180"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path x:Key="PH_KuaiJin" Data="M0,0 L18.037382,9.1766542 18,5.3964557E-07 36.215,9.2670196 18.075834,18.616001 18.038122,9.3581823 0.075833155,18.616 z" Fill="White" HorizontalAlignment="Center" Height="18" Stretch="Fill" VerticalAlignment="Center" Width="36"/>
+		<Path x:Key="PH_ShangYiGe" Data="M0,0 L18.037382,9.1766542 18,5.3964557E-07 23.079713,-0.012833564 23.230192,18.647668 18.075834,18.616001 18.038122,9.3581823 0.075833155,18.616 z" Fill="White" HorizontalAlignment="Center" Height="18.66" Stretch="Fill" VerticalAlignment="Center" Width="23.229" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+			<Path.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="-180"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path x:Key="PH_Back"  Data="M16.095624,21.488946 L16.095624,26.1832 33.441634,26.076406 C41.005159,26.150375 41.210411,3.7667931 33.535816,3.3516825 L16.284167,3.3516825 16.284167,-1.2355111 34.163924,-1.2650631 C46.404263,-1.369405 46.483623,30.505864 33.748112,30.397257 L16.189895,30.557392 15.90708,35.14453 6.9512597,28.316465 z" Fill="White" Height="25.4" Stretch="Fill" Width="35.2" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+		<Path x:Key="PH_XiaYiGe" Data="M0,0 L18.037382,9.1766542 18,5.3964557E-07 23.079713,-0.012833564 23.230192,18.647668 18.075834,18.616001 18.038122,9.3581823 0.075833155,18.616 z" Fill="White" HorizontalAlignment="Center" Height="18.66" Stretch="Fill" VerticalAlignment="Center" Width="23.233"/>
+		
+		<Path x:Key="PH_Pause" Grid.Column="3" Data="M11.751,0 L13.501,0 C14.60557,0 15.501,0.89543051 15.501,2 L15.501,18.000999 C15.501,19.10557 14.60557,20.000999 13.501,20.000999 L11.751,20.000999 C10.646431,20.000999 9.7510004,19.10557 9.7510003,18.000999 L9.7510003,2 C9.7510004,0.89543051 10.646431,0 11.751,0 z M2.0000005,0 L3.7500005,0 C4.8545699,0 5.7500005,0.89543051 5.7500005,2 L5.7500005,18.000999 C5.7500005,19.10557 4.8545699,20.000999 3.7500005,20.000999 L2.0000005,20.000999 C0.89543056,20.000999 0,19.10557 0,18.000999 L0,2 C0,0.89543051 0.89543056,0 2.0000005,0 z" Fill="White" Margin="0" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Width="15" Height="20"/>
+		
+			
+		<DoubleAnimation x:Key="ANI_Rotate" RepeatBehavior="Forever"  Duration="0:0:0.8" From="-180" To="180"/>
+	</Window.Resources>
+	
+	<Canvas>
+		<Grid Width="800" Canvas.Top="154">
+			<TextBlock x:Name="TBK_Tip" Text="音量 : 70%" FontSize="39" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="#FFFFC700" Visibility="Collapsed"/>
+		</Grid>
+		<Grid x:Name="BD_DownConsole"  Canvas.Left="29.697" Canvas.Top="395.5" Height="62" Width="739.803"> 
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.309*"/>
+				<ColumnDefinition Width="0.119*"/>
+				<ColumnDefinition Width="0.114*"/>
+				<ColumnDefinition Width="0.119*"/>
+				<ColumnDefinition Width="0.339*"/>
+			</Grid.ColumnDefinitions>
+			<Grid.Background>
+				<ImageBrush ImageSource="Pictures/VideoConsole/musicbarback.png"/>
+			</Grid.Background>
+			<Rectangle Margin="168,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="33" Width="1" Fill="Black"/>
+			<Rectangle Margin="170,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="33" Width="1" Fill="#FF8D8D8D"/>
+			<Rectangle Margin="0,0,168,0" HorizontalAlignment="Right" VerticalAlignment="Center" Height="33" Width="1" Fill="Black" Grid.Column="4" d:LayoutOverrides="GridBox"/>
+			<Rectangle Margin="0,0,170,0" HorizontalAlignment="Right" VerticalAlignment="Center" Height="33" Width="1" Fill="#FF8D8D8D" Grid.Column="4"/>
+			<Button x:Name="BTN_Vdown" Style="{StaticResource DownPlayButtonStyle1}" Grid.Column="4" Margin="0,0,104,0" HorizontalAlignment="Right" VerticalAlignment="Center" d:LayoutOverrides="GridBox">
+				<Rectangle  StrokeThickness="0" Fill="White" RadiusX="3" RadiusY="3" HorizontalAlignment="center" Width="21.582" VerticalAlignment="Center" Height="4"/>
+			</Button>
+			<Button x:Name="BTN_Vup" Grid.Column="4" Style="{StaticResource DownPlayButtonStyle1}" Margin="0,0,19,0" HorizontalAlignment="Right" d:LayoutOverrides="GridBox">
+				<Path Data="M10.77,1.4210855E-14 C12.051853,-1.579523E-07 13.091001,1.3431456 13.091001,2.9999998 L13.091001,8.2320002 18.3,8.2320002 C19.956855,8.2320002 21.3,9.2713707 21.3,10.5535 21.3,11.835629 19.956855,12.875 18.3,12.875 L13.091001,12.875 13.091001,18.299999 C13.091001,19.956854 12.051853,21.299999 10.77,21.299999 9.4881475,21.299999 8.4490004,19.956854 8.4490003,18.299999 L8.4490003,12.875 3.0000005,12.875 C1.3431463,12.875 0,11.835629 0,10.5535 0,9.2713707 1.3431463,8.2320002 3.0000005,8.2320002 L8.4490003,8.2320002 8.4490003,2.9999998 C8.4490004,1.3431456 9.4881475,-1.579523E-07 10.77,1.4210855E-14 z" Fill="White" HorizontalAlignment="Center" Margin="0,0,0,0" Stretch="Fill" StrokeThickness="0" Width="21.3" VerticalAlignment="Center" Height="19.5"/>
+			</Button>
+			<Path Grid.Column="4" Data="M3.9863783,10.107899 L15.414414,10.188 29.39954,3.063 29.400338,26.312666 15.281532,18.771333 3.987026,18.607777 z" Fill="White" Margin="0,0,84,0" Stretch="Fill" StrokeThickness="0" VerticalAlignment="Center" Height="18.5" HorizontalAlignment="Right" Width="12.438"/>
+			<Path Grid.Column="4" Data="M0.93786008,0.62287947 C0.50010253,-0.31501539 0.35805589,-1.2121911 1.2294974,-1.8766805 2.1044366,-2.5438368 3.2572765,-1.6504441 3.8126196,-1.0025626 4.5625765,-0.065161699 5.6454778,3.0417732 5.6854928,5.7917559 5.7273311,8.6670421 4.5549545,12.645301 3.5605702,13.480224 2.4221035,14.436123 1.674598,14.536259 1.1253631,14.186429 0.43802195,13.748632 0.23454589,12.420035 0.68812735,11.686215 1.1564058,10.904324 2.6878861,9.1985058 2.6878861,5.8735405 2.6878861,3.1857021 1.7502381,1.9351393&#xa;0.93786008,0.62287947 z" Fill="White" HorizontalAlignment="Right" Margin="0,24.9,77.2,25.1" Stretch="Fill" StrokeThickness="0" Width="5.24" d:LayoutOverrides="HorizontalAlignment"/>
+			<Path Grid.Column="4" Data="M0.93786008,0.62287947 C0.50010253,-0.31501539 0.35805589,-1.2121911 1.2294974,-1.8766805 2.1044366,-2.5438368 3.2572765,-1.6504441 3.8126196,-1.0025626 4.5625765,-0.065161699 5.6454778,3.0417732 5.6854928,5.7917559 5.7273311,8.6670421 4.5549545,12.645301 3.5605702,13.480224 2.4221035,14.436123 1.674598,14.536259 1.1253631,14.186429 0.43802195,13.748632 0.23454589,12.420035 0.68812735,11.686215 1.1564058,10.904324 2.6878861,9.1985058 2.6878861,5.8735405 2.6878861,3.1857021 1.7502381,1.9351393&#xa;0.93786008,0.62287947 z" Fill="White" HorizontalAlignment="Right" Margin="0,0,72,0" Stretch="Fill" StrokeThickness="0" Width="5.24" VerticalAlignment="Center" Height="19.5"/>
+			<Button  Name="BTN_Back" Style="{StaticResource DownPlayButtonStyle1}" Margin="29,0,0,0" Width="63" HorizontalAlignment="Left" Height="47">
+				<Path Data="M16.095624,21.488946 L16.095624,26.1832 33.441634,26.076406 C41.005159,26.150375 41.210411,3.7667931 33.535816,3.3516825 L16.284167,3.3516825 16.284167,-1.2355111 34.163924,-1.2650631 C46.404263,-1.369405 46.483623,30.505864 33.748112,30.397257 L16.189895,30.557392 15.90708,35.14453 6.9512597,28.316465 z" Fill="White" Height="25.4" Stretch="Fill" Width="35.2" HorizontalAlignment="Center" Margin="4,0,0,0" VerticalAlignment="Center"/>
+			</Button>
+			<Button  Name="BTN_Screen" Style="{StaticResource DownPlayButtonStyle1}" Margin="95,0,0,0" Width="63" HorizontalAlignment="Left" Height="47">
+				<Path Data="M16.342993,4.9590001 L20.334656,9.7069778 17.687553,9.7910127 17.72957,15.589428 23.48597,15.631445 23.443951,12.984343 28.360001,16.89197 23.612022,20.883633 23.527987,18.320566 17.708374,18.278269 17.666544,24.11898 20.250397,24.182007 16.342823,28.972 12.309198,24.30806 14.89324,24.245033 14.89324,18.320286 9.0738955,18.362303 9.0318785,20.967333 4.3680001,16.996761 8.968853,12.963166 9.0633917,15.657481 14.851223,15.631221 14.830363,9.7489948 12.309312,9.6649598&#xd;&#xa; z M2.3526268,2.2454099 L2.3526268,31.48156 30.248814,31.48156 30.248814,2.2454099 z M0.5,0.5 L32,0.5 32,33 0.5,33 z" Fill="White" Height="24.167" Canvas.Left="330.765" Stretch="Fill" Stroke="White" Canvas.Top="195.82" Width="32.5" />
+			</Button>
+			<Button  Name="BTN_GoBackward"  Style="{StaticResource DownPlayButtonStyle1}" Margin="0" d:LayoutOverrides="GridBox" Width="50" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{StaticResource PH_ShangYiGe}"/>
+			<Button Name="BTN_Pause" Style="{StaticResource DownPlayButtonStyle1}" Margin="0" d:LayoutOverrides="GridBox" Width="50" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{StaticResource PH_Pause}"/>
+			<Button Name="BTN_Play" Style="{StaticResource DownPlayButtonStyle1}" Margin="0" Width="50" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
+				<Path Data="M0.07574921,1.75 L21.726251,13.999997 0.07574921,26.125 z" Fill="White" HorizontalAlignment="Center" Stretch="Fill" Width="19.652" Margin="5,0,0,0" Height="21.376" VerticalAlignment="Center" />
+			</Button>
+			<TextBlock x:Name="TBK_CTime" Foreground="White" FontSize="18.667" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,-102,0,0">00:00:00</TextBlock>
+			<TextBlock x:Name="TBK_Stime" Foreground="White" FontSize="18.667" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,-102,0,0" Grid.Column="4">00:00:00</TextBlock>
+			<Button Name="BTN_GoForward" Style="{StaticResource DownPlayButtonStyle1}" Margin="0" Width="50" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{StaticResource PH_XiaYiGe}" />
+		</Grid>
+		<Grid x:Name="LayoutRoot" Background="#01000000" Height="52.5" Width="578.8" Canvas.Left="111.7" Canvas.Top="339">
+			<local:MyProgressBar x:Name="UC_ProgressBar" Margin="0" d:LayoutOverrides="GridBox"/>
+		</Grid>
+	</Canvas>
+</Window>

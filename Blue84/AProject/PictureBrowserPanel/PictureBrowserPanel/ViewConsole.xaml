@@ -1,0 +1,114 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="PictureBrowserPanel.ViewConsole"
+	Width="550" Height="56">
+	<UserControl.Resources>
+		<Style x:Key="DownPlayButtonStyle1" TargetType="{x:Type Button}">
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="Height" Value="50"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="Width" Value="50"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<ControlTemplate.Resources>
+							<Storyboard x:Key="Storyboard1">
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+								</ObjectAnimationUsingKeyFrames>
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid Background="#00000000">
+							<ContentPresenter Margin="0"></ContentPresenter>
+							
+							<Ellipse x:Name="ellipse" Margin="-11,0" Visibility="Hidden">
+								<Ellipse.Fill>
+									<RadialGradientBrush RadiusX="0.387" RadiusY="0.365">
+										<GradientStop Color="#FDFFEA00"/>
+										<GradientStop Color="#00FFEA00" Offset="1"/>
+										<GradientStop Color="#46FFEA00" Offset="0.619"/>
+										<GradientStop Color="#7BFFEA00" Offset="0.288"/>
+										<GradientStop Color="#17FFEA00" Offset="0.86"/>
+									</RadialGradientBrush>
+								</Ellipse.Fill>
+							</Ellipse>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True">
+							</Trigger>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Trigger.EnterActions>
+									<BeginStoryboard x:Name="Storyboard1_BeginStoryboard" Storyboard="{StaticResource Storyboard1}"/>
+								</Trigger.EnterActions>
+								<Trigger.ExitActions>
+									<RemoveStoryboard BeginStoryboardName="Storyboard1_BeginStoryboard"/>
+								</Trigger.ExitActions>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="True">
+								
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="False"/>
+							<Trigger Property="IsCancel" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot">
+			<Grid>
+				<Grid.Background>
+					<ImageBrush ImageSource="Pictures/ExpanderShow/musicbarback.png"/>
+				</Grid.Background>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.1833*"/>
+					<ColumnDefinition Width="0.1833*"/>
+					<ColumnDefinition Width="0.1833*"/>
+					<ColumnDefinition Width="0.1833*"/>
+					<ColumnDefinition Width="0.1833*"/>
+					<ColumnDefinition Width="0.1833*"/>
+				</Grid.ColumnDefinitions>
+				<Button Name="BTN_Back" Style="{StaticResource DownPlayButtonStyle1}" Grid.Column="0" Width="40" Height="40">
+					<Path Data="M16.095624,21.488946 L16.095624,26.1832 33.441634,26.076406 C41.005159,26.150375 41.210411,3.7667931 33.535816,3.3516825 L16.284167,3.3516825 16.284167,-1.2355111 34.163924,-1.2650631 C46.404263,-1.369405 46.483623,30.505864 33.748112,30.397257 L16.189895,30.557392 15.90708,35.14453 6.9512597,28.316465 z" Fill="White" Height="25.4" Stretch="Fill" Width="35.2" />
+				</Button>
+				<Button Name="BTN_RotateC" Style="{StaticResource DownPlayButtonStyle1}" Grid.Column="2" Width="51" Height="40">
+					<Path Data="M40.248763,8.6250008 C45.261806,10.766073 48.505591,15.630664 48.53728,19.449334 48.632079,26.928882 39.366792,33.303853 28.210556,33.619447 L23.29463,33.619447 23.231602,39.237 12.769001,30.842229 23.105546,22.384346 23.231261,27.623189 24.933119,27.607406 C31.393607,27.575845 42.061336,24.725219 42.497087,19.586088 42.637525,16.844837 40.072186,14.698049 35.269633,13.042791 z M25.306399,0 L35.769,8.3947687 25.432454,16.852654 25.306742,11.613811 23.60488,11.629594 C17.144394,11.661153 6.4766645,14.511782 6.0409131,19.65091 5.9004769,22.392163 8.4658136,24.538952 13.26837,26.194205 L8.289237,30.611997 C3.2761955,28.470923 0.0324049,23.606338 0.00072097778,19.787663 -0.094075203,12.308118 9.1712077,5.9331441 20.327444,5.6175501 L25.243372,5.6175501 z" Fill="White" Height="27.2" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Width="36.5">
+					</Path>
+				</Button>
+				<Button Name="BTN_RotateUC" Style="{StaticResource DownPlayButtonStyle1}" Grid.Column="3"  Width="51" Height="40">
+					<Path Data="M40.248763,8.6250008 C45.261806,10.766073 48.505591,15.630664 48.53728,19.449334 48.632079,26.928882 39.366792,33.303853 28.210556,33.619447 L23.29463,33.619447 23.231602,39.237 12.769001,30.842229 23.105546,22.384346 23.231261,27.623189 24.933119,27.607406 C31.393607,27.575845 42.061336,24.725219 42.497087,19.586088 42.637525,16.844837 40.072186,14.698049 35.269633,13.042791 z M25.306399,0 L35.769,8.3947687 25.432454,16.852654 25.306742,11.613811 23.60488,11.629594 C17.144394,11.661153 6.4766645,14.511782 6.0409131,19.65091 5.9004769,22.392163 8.4658136,24.538952 13.26837,26.194205 L8.289237,30.611997 C3.2761955,28.470923 0.0324049,23.606338 0.00072097778,19.787663 -0.094075203,12.308118 9.1712077,5.9331441 20.327444,5.6175501 L25.243372,5.6175501 z" Fill="White" Height="27.2" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Width="36.5">
+						<Path.RenderTransform>
+							<ScaleTransform ScaleY="-1"/>
+						</Path.RenderTransform>
+					</Path>
+				</Button>
+                <Button  Name="BTN_ReturnLast"  Style="{StaticResource DownPlayButtonStyle1}" Grid.Column="1" >
+					<Path x:Name="PH_ShangYiGe" Data="M0,0 L18.037382,9.1766542 18,5.3964557E-07 23.079713,-0.012833564 23.230192,18.647668 18.075834,18.616001 18.038122,9.3581823 0.075833155,18.616 z" Fill="White" Height="18.66" Stretch="Fill" Width="23.229" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Canvas.Left="168.771" Canvas.Top="125.34">
+						<Path.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform Angle="-180"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Path.RenderTransform>
+					</Path>
+				</Button>
+                
+				<Button Name="BTN_ReSize" Style="{StaticResource DownPlayButtonStyle1}" Grid.Column="4" >
+					<Path Data="M16.342993,4.9590001 L20.334656,9.7069778 17.687553,9.7910127 17.72957,15.589428 23.48597,15.631445 23.443951,12.984343 28.360001,16.89197 23.612022,20.883633 23.527987,18.320566 17.708374,18.278269 17.666544,24.11898 20.250397,24.182007 16.342823,28.972 12.309198,24.30806 14.89324,24.245033 14.89324,18.320286 9.0738955,18.362303 9.0318785,20.967333 4.3680001,16.996761 8.968853,12.963166 9.0633917,15.657481 14.851223,15.631221 14.830363,9.7489948 12.309312,9.6649598&#xd;&#xa; z M2.3526268,2.2454099 L2.3526268,31.48156 30.248814,31.48156 30.248814,2.2454099 z M0.5,0.5 L32,0.5 32,33 0.5,33 z" Fill="White" Height="24.167"  Stretch="Fill" Stroke="White"  Width="34.5" HorizontalAlignment="Center" VerticalAlignment="Center" />
+				</Button>
+				<Button Name="BTN_GoForward" Style="{StaticResource DownPlayButtonStyle1}" Grid.Column="5" >
+					<Path x:Name="PH_XiaYiGe" Data="M0,0 L18.037382,9.1766542 18,5.3964557E-07 23.079713,-0.012833564 23.230192,18.647668 18.075834,18.616001 18.038122,9.3581823 0.075833155,18.616 z" Fill="White" Height="18.66" Stretch="Fill" Width="23.233"/>
+				</Button>
+			</Grid>
+		
+		
+	</Grid>
+</UserControl>

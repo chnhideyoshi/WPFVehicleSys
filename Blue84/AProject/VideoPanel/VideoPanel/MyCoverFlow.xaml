@@ -1,0 +1,595 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:_3DTools="clr-namespace:_3DTools;assembly=3DTools" 
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+	mc:Ignorable="d"
+	x:Class="VideoPanel.MyCoverFlow"
+	x:Name="UserControl" 
+    Width="765" Height="344">
+	<UserControl.Resources>
+		<BitmapImage x:Key="BI_DefaultBack" UriSource="Pictures/ListShow/defaultBack.jpg"/>
+		<BitmapImage x:Key="BI_Imagesouce" UriSource="Pictures/SwitchShow/videoBack.png"/>
+		<ImageBrush x:Key="BI_Image" ImageSource="{StaticResource BI_Imagesouce}"/>
+		<Style x:Key="ControlStyle1" TargetType="{x:Type Control}">
+			
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Control}">
+						<StackPanel Orientation="Vertical">
+							<Grid x:Name="___rec_main1">
+								<Rectangle Width="Auto" Height="{Binding ActualWidth, ElementName=___rec_main1}" Fill="{StaticResource BI_Image}"/>
+								<Rectangle  HorizontalAlignment="Stretch" Margin="4,13,4,14" StrokeThickness="0" >
+									<Rectangle.Fill>
+										<ImageBrush ImageSource="{StaticResource BI_DefaultBack}"/>
+									</Rectangle.Fill>
+								</Rectangle>
+								<Rectangle  HorizontalAlignment="Stretch" Margin="4,13,4,14" StrokeThickness="0" Fill="{TemplateBinding Background}"/>
+							</Grid>
+							<Rectangle x:Name="path"   HorizontalAlignment="Stretch" Margin="0" Opacity="0.745" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Stroke="White" StrokeThickness="0" VerticalAlignment="Stretch" Width="Auto" Height="{Binding ActualHeight, ElementName=___rec_main1}" >
+								<Rectangle.Fill>
+									<VisualBrush  Visual="{Binding ElementName=___rec_main1}"/>
+								</Rectangle.Fill>
+								<Rectangle.OpacityMask>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0.25">
+										<GradientStop Color="Transparent" Offset="0.542" />
+										<GradientStop Color="#7E000000"    Offset="1" />
+									</LinearGradientBrush>
+								</Rectangle.OpacityMask>
+								<Rectangle.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform ScaleY="-1"/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Rectangle.RenderTransform>
+							</Rectangle>
+						</StackPanel>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Storyboard x:Key="STB_SwitchLeft"  FillBehavior="Stop">
+			<!--Angle-->
+			<DoubleAnimation Duration="00:00:00.3" To="0" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[0].(RotateTransform3D.Rotation).(AxisAngleRotation3D.Angle)" Storyboard.TargetName="R1" />
+			<DoubleAnimation Duration="00:00:00.3" To="70" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[0].(RotateTransform3D.Rotation).(AxisAngleRotation3D.Angle)" Storyboard.TargetName="C" />
+			<!--Angle-->
+			<!--X-->
+			<!--<DoubleAnimation Duration="00:00:00.3" To="0" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="L5" />-->
+			<DoubleAnimation Duration="00:00:00.3" To="-4" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="L4" />
+			<DoubleAnimation Duration="00:00:00.3" To="-3.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="L3" />
+			<DoubleAnimation Duration="00:00:00.3" To="-3" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="L2" />
+			<DoubleAnimation Duration="00:00:00.3" To="-2.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="L1" />
+			<DoubleAnimation Duration="00:00:00.3" To="-1.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="C" />
+			<DoubleAnimation Duration="00:00:00.3" To="0" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="R1" />
+			<DoubleAnimation Duration="00:00:00.3" To="1.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="R2" />
+			<DoubleAnimation Duration="00:00:00.3" To="2.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="R3" />
+			<DoubleAnimation Duration="00:00:00.3" To="3" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="R4" />
+			<DoubleAnimation Duration="00:00:00.3" To="3.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="R5" />
+			<!--X-->
+			<!--Z-->
+			<DoubleAnimation Duration="00:00:00.3" To="-2.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="L4" />
+			<DoubleAnimation Duration="00:00:00.3" To="-2" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="L3" />
+			<DoubleAnimation Duration="00:00:00.3" To="-1.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="L2" />
+			<DoubleAnimation Duration="00:00:00.3" To="-1" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="L1" />
+			<DoubleAnimation Duration="00:00:00.3" To="-0.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="C" />
+			<DoubleAnimation Duration="00:00:00.3" To="0" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="R1" />
+			<DoubleAnimation Duration="00:00:00.3" To="-0.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="R2" />
+			<DoubleAnimation Duration="00:00:00.3" To="-1" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="R3" />
+			<DoubleAnimation Duration="00:00:00.3" To="-1.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="R4" />
+			<DoubleAnimation Duration="00:00:00.3" To="-2" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="R5" />
+			<!--Z-->
+			
+		</Storyboard>
+		
+		<Storyboard x:Key="STB_SwitchRight" FillBehavior="Stop">
+			<!--Angle-->
+			<DoubleAnimation Duration="00:00:00.3" To="0" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[0].(RotateTransform3D.Rotation).(AxisAngleRotation3D.Angle)" Storyboard.TargetName="L1" />
+			<DoubleAnimation Duration="00:00:00.3" To="-70" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[0].(RotateTransform3D.Rotation).(AxisAngleRotation3D.Angle)" Storyboard.TargetName="C" />
+			<!--Angle-->
+			<!--X-->
+			<DoubleAnimation Duration="00:00:00.3" To="-3.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="L5" />
+			<DoubleAnimation Duration="00:00:00.3" To="-3" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="L4" />
+			<DoubleAnimation Duration="00:00:00.3" To="-2.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="L3" />
+			<DoubleAnimation Duration="00:00:00.3" To="-1.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="L2" />
+			<DoubleAnimation Duration="00:00:00.3" To="-0" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="L1" />
+			<DoubleAnimation Duration="00:00:00.3" To="1.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="C" />
+			<DoubleAnimation Duration="00:00:00.3" To="2.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="R1" />
+			<DoubleAnimation Duration="00:00:00.3" To="3" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="R2" />
+			<DoubleAnimation Duration="00:00:00.3" To="3.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="R3" />
+			<DoubleAnimation Duration="00:00:00.3" To="4" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetX)" Storyboard.TargetName="R4" />
+			
+			<!--X-->
+			<!--Z-->
+			<DoubleAnimation Duration="00:00:00.3" To="-2" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="L5" />
+			<DoubleAnimation Duration="00:00:00.3" To="-1.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="L4" />
+			<DoubleAnimation Duration="00:00:00.3" To="-1" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="L3" />
+			<DoubleAnimation Duration="00:00:00.3" To="-0.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="L2" />
+			<DoubleAnimation Duration="00:00:00.3" To="-0" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="L1" />
+			<DoubleAnimation Duration="00:00:00.3" To="-0.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="C" />
+			<DoubleAnimation Duration="00:00:00.3" To="-1" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="R1" />
+			<DoubleAnimation Duration="00:00:00.3" To="-1.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="R2" />
+			<DoubleAnimation Duration="00:00:00.3" To="-2" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="R3" />
+			<DoubleAnimation Duration="00:00:00.3" To="-2.5" Storyboard.TargetProperty="(ModelVisual3D.Transform).(Transform3DGroup.Children)[1].(TranslateTransform3D.OffsetZ)" Storyboard.TargetName="R4" />
+			
+			<!--Z-->
+		</Storyboard>
+	</UserControl.Resources>
+	<Grid x:Name="LayoutRoot">
+		<_3DTools:Interactive3DDecorator>
+			<Viewport3D x:Name="viewport3D">
+				<!--摄像机-->
+				<Viewport3D.Camera>
+					<PerspectiveCamera x:Name="Camera" Position="0,0.7,9"/>
+				</Viewport3D.Camera>
+				<!--灯光-->
+				<ModelVisual3D>
+					<ModelVisual3D.Content>
+						<AmbientLight Color="White"/>
+					</ModelVisual3D.Content>
+				</ModelVisual3D>
+				
+				<!--Left5-->
+				<_3DTools:InteractiveVisual3D x:Name="L5">
+					<_3DTools:InteractiveVisual3D.Geometry>
+						<MeshGeometry3D>
+							<MeshGeometry3D.Positions>
+								<Point3D>-1.1,2,0</Point3D>
+								<Point3D>-1.1,-2,0</Point3D>
+								<Point3D>1.1,-2,0</Point3D>
+								<Point3D>1.1,2,0</Point3D>
+							</MeshGeometry3D.Positions>
+							<MeshGeometry3D.TriangleIndices>
+								<System:Int32>0</System:Int32>
+								<System:Int32>1</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>0</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>3</System:Int32>
+							</MeshGeometry3D.TriangleIndices>
+							<MeshGeometry3D.TextureCoordinates>
+								<Point>0,0</Point>
+								<Point>0,1</Point>
+								<Point>1,1</Point>
+								<Point>1,0</Point>
+							</MeshGeometry3D.TextureCoordinates>
+						</MeshGeometry3D>
+					</_3DTools:InteractiveVisual3D.Geometry>
+					<_3DTools:InteractiveVisual3D.Visual>
+						<Control x:Name="CT_L5" Style="{StaticResource ControlStyle1}" Width="120"/>
+					</_3DTools:InteractiveVisual3D.Visual>
+					<_3DTools:InteractiveVisual3D.Transform>
+						<Transform3DGroup>
+							<RotateTransform3D>
+								<RotateTransform3D.Rotation>
+									<AxisAngleRotation3D Angle="70" Axis="0,1,0"/>
+								</RotateTransform3D.Rotation>
+							</RotateTransform3D>
+							<TranslateTransform3D OffsetX="-4" OffsetY="0" OffsetZ="-2.5"/>
+						</Transform3DGroup>
+					</_3DTools:InteractiveVisual3D.Transform>
+				</_3DTools:InteractiveVisual3D>
+				<!--Left5-->
+				<!--Left4-->
+				<_3DTools:InteractiveVisual3D x:Name="L4">
+					<_3DTools:InteractiveVisual3D.Geometry>
+						<MeshGeometry3D>
+							<MeshGeometry3D.Positions>
+								<Point3D>-1.1,2,0</Point3D>
+								<Point3D>-1.1,-2,0</Point3D>
+								<Point3D>1.1,-2,0</Point3D>
+								<Point3D>1.1,2,0</Point3D>
+							</MeshGeometry3D.Positions>
+							<MeshGeometry3D.TriangleIndices>
+								<System:Int32>0</System:Int32>
+								<System:Int32>1</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>0</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>3</System:Int32>
+							</MeshGeometry3D.TriangleIndices>
+							<MeshGeometry3D.TextureCoordinates>
+								<Point>0,0</Point>
+								<Point>0,1</Point>
+								<Point>1,1</Point>
+								<Point>1,0</Point>
+							</MeshGeometry3D.TextureCoordinates>
+						</MeshGeometry3D>
+					</_3DTools:InteractiveVisual3D.Geometry>
+					<_3DTools:InteractiveVisual3D.Visual>
+						<Control x:Name="CT_L4" Style="{StaticResource ControlStyle1}" Width="120"/>
+					</_3DTools:InteractiveVisual3D.Visual>
+					<_3DTools:InteractiveVisual3D.Transform>
+						<Transform3DGroup>
+							<RotateTransform3D>
+								<RotateTransform3D.Rotation>
+									<AxisAngleRotation3D Angle="70" Axis="0,1,0"/>
+								</RotateTransform3D.Rotation>
+							</RotateTransform3D>
+							<TranslateTransform3D OffsetX="-3.5" OffsetY="0" OffsetZ="-2"/>
+						</Transform3DGroup>
+					</_3DTools:InteractiveVisual3D.Transform>
+				</_3DTools:InteractiveVisual3D>
+				<!--Left4-->
+				<!--Left3-->
+				<_3DTools:InteractiveVisual3D x:Name="L3">
+					<_3DTools:InteractiveVisual3D.Geometry>
+						<MeshGeometry3D>
+							<MeshGeometry3D.Positions>
+								<Point3D>-1.1,2,0</Point3D>
+								<Point3D>-1.1,-2,0</Point3D>
+								<Point3D>1.1,-2,0</Point3D>
+								<Point3D>1.1,2,0</Point3D>
+							</MeshGeometry3D.Positions>
+							<MeshGeometry3D.TriangleIndices>
+								<System:Int32>0</System:Int32>
+								<System:Int32>1</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>0</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>3</System:Int32>
+							</MeshGeometry3D.TriangleIndices>
+							<MeshGeometry3D.TextureCoordinates>
+								<Point>0,0</Point>
+								<Point>0,1</Point>
+								<Point>1,1</Point>
+								<Point>1,0</Point>
+							</MeshGeometry3D.TextureCoordinates>
+						</MeshGeometry3D>
+					</_3DTools:InteractiveVisual3D.Geometry>
+					<_3DTools:InteractiveVisual3D.Visual>
+						<Control x:Name="CT_L3" Style="{StaticResource ControlStyle1}" Width="120"/>
+					</_3DTools:InteractiveVisual3D.Visual>
+					<_3DTools:InteractiveVisual3D.Transform>
+						<Transform3DGroup>
+							<RotateTransform3D>
+								<RotateTransform3D.Rotation>
+									<AxisAngleRotation3D Angle="70" Axis="0,1,0"/>
+								</RotateTransform3D.Rotation>
+							</RotateTransform3D>
+							<TranslateTransform3D OffsetX="-3.0" OffsetY="0" OffsetZ="-1.5"/>
+						</Transform3DGroup>
+					</_3DTools:InteractiveVisual3D.Transform>
+				</_3DTools:InteractiveVisual3D>
+				<!--Left3-->
+				<!--Left2-->
+				<_3DTools:InteractiveVisual3D x:Name="L2">
+					<_3DTools:InteractiveVisual3D.Geometry>
+						<MeshGeometry3D>
+							<MeshGeometry3D.Positions>
+								<Point3D>-1.1,2,0</Point3D>
+								<Point3D>-1.1,-2,0</Point3D>
+								<Point3D>1.1,-2,0</Point3D>
+								<Point3D>1.1,2,0</Point3D>
+							</MeshGeometry3D.Positions>
+							<MeshGeometry3D.TriangleIndices>
+								<System:Int32>0</System:Int32>
+								<System:Int32>1</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>0</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>3</System:Int32>
+							</MeshGeometry3D.TriangleIndices>
+							<MeshGeometry3D.TextureCoordinates>
+								<Point>0,0</Point>
+								<Point>0,1</Point>
+								<Point>1,1</Point>
+								<Point>1,0</Point>
+							</MeshGeometry3D.TextureCoordinates>
+						</MeshGeometry3D>
+					</_3DTools:InteractiveVisual3D.Geometry>
+					<_3DTools:InteractiveVisual3D.Visual>
+						<Control x:Name="CT_L2" Style="{StaticResource ControlStyle1}" Width="120"/>
+					</_3DTools:InteractiveVisual3D.Visual>
+					<_3DTools:InteractiveVisual3D.Transform>
+						<Transform3DGroup>
+							<RotateTransform3D>
+								<RotateTransform3D.Rotation>
+									<AxisAngleRotation3D Angle="70" Axis="0,1,0"/>
+								</RotateTransform3D.Rotation>
+							</RotateTransform3D>
+							<TranslateTransform3D OffsetX="-2.5" OffsetY="0" OffsetZ="-1"/>
+						</Transform3DGroup>
+					</_3DTools:InteractiveVisual3D.Transform>
+				</_3DTools:InteractiveVisual3D>
+				<!--Left2-->
+				<!--Left1-->
+				<_3DTools:InteractiveVisual3D x:Name="L1">
+					<_3DTools:InteractiveVisual3D.Geometry>
+						<MeshGeometry3D>
+							<MeshGeometry3D.Positions>
+								<Point3D>-1.1,2,0</Point3D>
+								<Point3D>-1.1,-2,0</Point3D>
+								<Point3D>1.1,-2,0</Point3D>
+								<Point3D>1.1,2,0</Point3D>
+							</MeshGeometry3D.Positions>
+							<MeshGeometry3D.TriangleIndices>
+								<System:Int32>0</System:Int32>
+								<System:Int32>1</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>0</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>3</System:Int32>
+							</MeshGeometry3D.TriangleIndices>
+							<MeshGeometry3D.TextureCoordinates>
+								<Point>0,0</Point>
+								<Point>0,1</Point>
+								<Point>1,1</Point>
+								<Point>1,0</Point>
+							</MeshGeometry3D.TextureCoordinates>
+						</MeshGeometry3D>
+					</_3DTools:InteractiveVisual3D.Geometry>
+					<_3DTools:InteractiveVisual3D.Visual>
+						<Control x:Name="CT_L1" Style="{StaticResource ControlStyle1}" Width="120"/>
+					</_3DTools:InteractiveVisual3D.Visual>
+					<_3DTools:InteractiveVisual3D.Transform>
+						<Transform3DGroup>
+							<RotateTransform3D>
+								<RotateTransform3D.Rotation>
+									<AxisAngleRotation3D Angle="70" Axis="0,1,0"/>
+								</RotateTransform3D.Rotation>
+							</RotateTransform3D>
+							<TranslateTransform3D OffsetX="-1.5" OffsetY="0" OffsetZ="-0.5"/>
+						</Transform3DGroup>
+					</_3DTools:InteractiveVisual3D.Transform>
+				</_3DTools:InteractiveVisual3D>
+				<!--Left1-->
+				<!--Center-->
+				<_3DTools:InteractiveVisual3D x:Name="C">
+					<_3DTools:InteractiveVisual3D.Geometry>
+						<MeshGeometry3D>
+							<MeshGeometry3D.Positions>
+								<Point3D>-1.1,2,0</Point3D>
+								<Point3D>-1.1,-2,0</Point3D>
+								<Point3D>1.1,-2,0</Point3D>
+								<Point3D>1.1,2,0</Point3D>
+							</MeshGeometry3D.Positions>
+							<MeshGeometry3D.TriangleIndices>
+								<System:Int32>0</System:Int32>
+								<System:Int32>1</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>0</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>3</System:Int32>
+							</MeshGeometry3D.TriangleIndices>
+							<MeshGeometry3D.TextureCoordinates>
+								<Point>0,0</Point>
+								<Point>0,1</Point>
+								<Point>1,1</Point>
+								<Point>1,0</Point>
+							</MeshGeometry3D.TextureCoordinates>
+						</MeshGeometry3D>
+					</_3DTools:InteractiveVisual3D.Geometry>
+					<_3DTools:InteractiveVisual3D.Visual>
+						<Control x:Name="CT_C" Style="{StaticResource ControlStyle1}" Width="120"/>
+					</_3DTools:InteractiveVisual3D.Visual>
+					<_3DTools:InteractiveVisual3D.Transform>
+						<Transform3DGroup>
+							<RotateTransform3D>
+								<RotateTransform3D.Rotation>
+									<AxisAngleRotation3D Angle="0" Axis="0,1,0"/>
+								</RotateTransform3D.Rotation>
+							</RotateTransform3D>
+							<TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0"/>	
+							<ScaleTransform3D/>
+						</Transform3DGroup>
+					</_3DTools:InteractiveVisual3D.Transform>
+				</_3DTools:InteractiveVisual3D>
+				<!--Center-->
+				<!--Right1-->
+				<_3DTools:InteractiveVisual3D x:Name="R1">
+					<_3DTools:InteractiveVisual3D.Geometry>
+						<MeshGeometry3D>
+							<MeshGeometry3D.Positions>
+								<Point3D>-1.1,2,0</Point3D>
+								<Point3D>-1.1,-2,0</Point3D>
+								<Point3D>1.1,-2,0</Point3D>
+								<Point3D>1.1,2,0</Point3D>
+							</MeshGeometry3D.Positions>
+							<MeshGeometry3D.TriangleIndices>
+								<System:Int32>0</System:Int32>
+								<System:Int32>1</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>0</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>3</System:Int32>
+							</MeshGeometry3D.TriangleIndices>
+							<MeshGeometry3D.TextureCoordinates>
+								<Point>0,0</Point>
+								<Point>0,1</Point>
+								<Point>1,1</Point>
+								<Point>1,0</Point>
+							</MeshGeometry3D.TextureCoordinates>
+						</MeshGeometry3D>
+					</_3DTools:InteractiveVisual3D.Geometry>
+					<_3DTools:InteractiveVisual3D.Visual>
+						<Control x:Name="CT_R1" Style="{StaticResource ControlStyle1}" Width="120"/>
+					</_3DTools:InteractiveVisual3D.Visual>
+					<_3DTools:InteractiveVisual3D.Transform>
+						<Transform3DGroup>
+							<RotateTransform3D>
+								<RotateTransform3D.Rotation>
+									<AxisAngleRotation3D Angle="-70" Axis="0,1,0"/>
+								</RotateTransform3D.Rotation>
+							</RotateTransform3D>
+							<TranslateTransform3D OffsetX="1.5" OffsetY="0" OffsetZ="-0.5"/>
+						</Transform3DGroup>
+					</_3DTools:InteractiveVisual3D.Transform>
+				</_3DTools:InteractiveVisual3D>
+				<!--Right1-->
+				<!--Right2-->
+				<_3DTools:InteractiveVisual3D x:Name="R2">
+					<_3DTools:InteractiveVisual3D.Geometry>
+						<MeshGeometry3D>
+							<MeshGeometry3D.Positions>
+								<Point3D>-1.1,2,0</Point3D>
+								<Point3D>-1.1,-2,0</Point3D>
+								<Point3D>1.1,-2,0</Point3D>
+								<Point3D>1.1,2,0</Point3D>
+							</MeshGeometry3D.Positions>
+							<MeshGeometry3D.TriangleIndices>
+								<System:Int32>0</System:Int32>
+								<System:Int32>1</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>0</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>3</System:Int32>
+							</MeshGeometry3D.TriangleIndices>
+							<MeshGeometry3D.TextureCoordinates>
+								<Point>0,0</Point>
+								<Point>0,1</Point>
+								<Point>1,1</Point>
+								<Point>1,0</Point>
+							</MeshGeometry3D.TextureCoordinates>
+						</MeshGeometry3D>
+					</_3DTools:InteractiveVisual3D.Geometry>
+					<_3DTools:InteractiveVisual3D.Visual>
+						<Control x:Name="CT_R2" Style="{StaticResource ControlStyle1}" Width="120"/>
+					</_3DTools:InteractiveVisual3D.Visual>
+					<_3DTools:InteractiveVisual3D.Transform>
+						<Transform3DGroup>
+							<RotateTransform3D>
+								<RotateTransform3D.Rotation>
+									<AxisAngleRotation3D Angle="-70" Axis="0,1,0"/>
+								</RotateTransform3D.Rotation>
+							</RotateTransform3D>
+							<TranslateTransform3D OffsetX="2.5" OffsetY="0" OffsetZ="-1"/>
+						</Transform3DGroup>
+					</_3DTools:InteractiveVisual3D.Transform>
+				</_3DTools:InteractiveVisual3D>
+				<!--Right2-->
+				<!--Right3-->
+				<_3DTools:InteractiveVisual3D x:Name="R3">
+					<_3DTools:InteractiveVisual3D.Geometry>
+						<MeshGeometry3D>
+							<MeshGeometry3D.Positions>
+								<Point3D>-1.1,2,0</Point3D>
+								<Point3D>-1.1,-2,0</Point3D>
+								<Point3D>1.1,-2,0</Point3D>
+								<Point3D>1.1,2,0</Point3D>
+							</MeshGeometry3D.Positions>
+							<MeshGeometry3D.TriangleIndices>
+								<System:Int32>0</System:Int32>
+								<System:Int32>1</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>0</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>3</System:Int32>
+							</MeshGeometry3D.TriangleIndices>
+							<MeshGeometry3D.TextureCoordinates>
+								<Point>0,0</Point>
+								<Point>0,1</Point>
+								<Point>1,1</Point>
+								<Point>1,0</Point>
+							</MeshGeometry3D.TextureCoordinates>
+						</MeshGeometry3D>
+					</_3DTools:InteractiveVisual3D.Geometry>
+					<_3DTools:InteractiveVisual3D.Visual>
+						<Control x:Name="CT_R3" Style="{StaticResource ControlStyle1}" Width="120"/>
+					</_3DTools:InteractiveVisual3D.Visual>
+					<_3DTools:InteractiveVisual3D.Transform>
+						<Transform3DGroup>
+							<RotateTransform3D>
+								<RotateTransform3D.Rotation>
+									<AxisAngleRotation3D Axis="0,-1,0" Angle="70"/>
+								</RotateTransform3D.Rotation>
+							</RotateTransform3D>
+							
+							<TranslateTransform3D OffsetZ="-1.5" OffsetX="3" OffsetY="0"/>
+						</Transform3DGroup>
+					</_3DTools:InteractiveVisual3D.Transform>
+				</_3DTools:InteractiveVisual3D>
+				<!--Right3-->
+				<!--Right4-->
+				<_3DTools:InteractiveVisual3D x:Name="R4">
+					<_3DTools:InteractiveVisual3D.Geometry>
+						<MeshGeometry3D>
+							<MeshGeometry3D.Positions>
+								<Point3D>-1.1,2,0</Point3D>
+								<Point3D>-1.1,-2,0</Point3D>
+								<Point3D>1.1,-2,0</Point3D>
+								<Point3D>1.1,2,0</Point3D>
+							</MeshGeometry3D.Positions>
+							<MeshGeometry3D.TriangleIndices>
+								<System:Int32>0</System:Int32>
+								<System:Int32>1</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>0</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>3</System:Int32>
+							</MeshGeometry3D.TriangleIndices>
+							<MeshGeometry3D.TextureCoordinates>
+								<Point>0,0</Point>
+								<Point>0,1</Point>
+								<Point>1,1</Point>
+								<Point>1,0</Point>
+							</MeshGeometry3D.TextureCoordinates>
+						</MeshGeometry3D>
+					</_3DTools:InteractiveVisual3D.Geometry>
+					<_3DTools:InteractiveVisual3D.Visual>
+						<Control x:Name="CT_R4" Style="{StaticResource ControlStyle1}" Width="120"/>
+					</_3DTools:InteractiveVisual3D.Visual>
+					<_3DTools:InteractiveVisual3D.Transform>
+						<Transform3DGroup>
+							<RotateTransform3D>
+								<RotateTransform3D.Rotation>
+									<AxisAngleRotation3D Axis="0,-1,0" Angle="70"/>
+								</RotateTransform3D.Rotation>
+							</RotateTransform3D>
+							
+							<TranslateTransform3D OffsetZ="-2" OffsetX="3.5" OffsetY="0"/>
+						</Transform3DGroup>
+					</_3DTools:InteractiveVisual3D.Transform>
+				</_3DTools:InteractiveVisual3D>
+				<!--Right4-->
+				<!--Right5-->
+				<_3DTools:InteractiveVisual3D x:Name="R5">
+					<_3DTools:InteractiveVisual3D.Geometry>
+						<MeshGeometry3D>
+							<MeshGeometry3D.Positions>
+								<Point3D>-1.1,2,0</Point3D>
+								<Point3D>-1.1,-2,0</Point3D>
+								<Point3D>1.1,-2,0</Point3D>
+								<Point3D>1.1,2,0</Point3D>
+							</MeshGeometry3D.Positions>
+							<MeshGeometry3D.TriangleIndices>
+								<System:Int32>0</System:Int32>
+								<System:Int32>1</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>0</System:Int32>
+								<System:Int32>2</System:Int32>
+								<System:Int32>3</System:Int32>
+							</MeshGeometry3D.TriangleIndices>
+							<MeshGeometry3D.TextureCoordinates>
+								<Point>0,0</Point>
+								<Point>0,1</Point>
+								<Point>1,1</Point>
+								<Point>1,0</Point>
+							</MeshGeometry3D.TextureCoordinates>
+						</MeshGeometry3D>
+					</_3DTools:InteractiveVisual3D.Geometry>
+					<_3DTools:InteractiveVisual3D.Visual>
+						<Control x:Name="CT_R5" Style="{StaticResource ControlStyle1}" Width="120"/>
+					</_3DTools:InteractiveVisual3D.Visual>
+					<_3DTools:InteractiveVisual3D.Transform>
+						<Transform3DGroup>
+							<RotateTransform3D>
+								<RotateTransform3D.Rotation>
+									<AxisAngleRotation3D Axis="0,-1,0" Angle="70"/>
+								</RotateTransform3D.Rotation>
+							</RotateTransform3D>
+							<TranslateTransform3D OffsetZ="-2.5" OffsetX="4" OffsetY="0"/>
+						</Transform3DGroup>
+					</_3DTools:InteractiveVisual3D.Transform>
+				</_3DTools:InteractiveVisual3D>
+				<!--Right5-->
+				
+			</Viewport3D>
+		</_3DTools:Interactive3DDecorator>
+		<Canvas Width="270" Background="#00000000" Height="{Binding ActualHeight, ElementName=LayoutRoot}" HorizontalAlignment="Left"></Canvas>
+		<Canvas Width="270" Background="#00000000" Height="{Binding ActualHeight, ElementName=LayoutRoot}" Canvas.Left="496" HorizontalAlignment="Right"></Canvas>
+	</Grid>
+</UserControl>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <ValidExtDirectoires>
+    <Directory value="G:\kankan"/>
+  </ValidExtDirectoires>
+  <IsTopMost value="true"></IsTopMost>
+  <ThumbHeight value="150"/>
+  <ThumbWidth value="200"/>
+  <SupportedExtensionList>
+    <Extension value=".WMV"/>
+    <Extension value=".MP4"/>
+    <Extension value=".MPG"/>
+    <Extension value=".AVI"/>
+    <Extension value=".RM"/>
+    <Extension value=".RMVB"/>
+    <Extension value=".FLV"/>
+    <Extension value=".MKV"/>
+  </SupportedExtensionList>
+</Settings>

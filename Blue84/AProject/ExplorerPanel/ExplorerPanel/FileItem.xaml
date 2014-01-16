@@ -1,0 +1,126 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="ExplorerPanel.FileItem"
+	x:Name="UserControl"
+	Width="620" Height="70">
+	<UserControl.Resources>
+		<Style x:Key="CheckBoxStyle1" TargetType="{x:Type CheckBox}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type CheckBox}">
+						<ControlTemplate.Resources>
+							<Storyboard x:Key="STB_ToCheck">
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="path">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+								</ObjectAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Key="STB_ToUnCheck">
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="path">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+								</ObjectAnimationUsingKeyFrames>
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid>
+							<Rectangle Margin="22" RadiusY="2" RadiusX="2" Stroke="White" StrokeThickness="2">
+								<Rectangle.Fill>
+									<RadialGradientBrush>
+										<GradientStop Color="White" Offset="0"/>
+										<GradientStop Color="#FFBABABA" Offset="1"/>
+									</RadialGradientBrush>
+								</Rectangle.Fill>
+							</Rectangle>
+							<Path x:Name="path" Data="M6.7082891,10.000143 L12.0833,14.083535 C15.915244,9.4880644 20.993942,5.4022844 26.175043,1.5871486 L27.099782,2.9122879 C21.110685,8.4825172 16.656546,14.913413 13.62497,21.875313 L4.2079508,11.833503 z" Height="20.287" Canvas.Left="320.333" Stretch="Fill" StrokeThickness="0" Canvas.Top="216" Width="22.892" Visibility="Hidden">
+								<Path.Fill>
+									<LinearGradientBrush EndPoint="0.369,1.002" StartPoint="0.958,0.099">
+										<GradientStop Color="#FF36847F" Offset="0"/>
+										<GradientStop Color="#FF1481AE" Offset="0.01"/>
+										<GradientStop Color="#FF0D82BC" Offset="0.019"/>
+										<GradientStop Color="#FF0D7BB5" Offset="0.282"/>
+										<GradientStop Color="#FF1176A5" Offset="0.29"/>
+										<GradientStop Color="#FF097AB5" Offset="0.3"/>
+										<GradientStop Color="#FF1074A2" Offset="0.314"/>
+										<GradientStop Color="#FF0C76AD" Offset="0.347"/>
+										<GradientStop Color="#FF0765A2" Offset="0.981"/>
+										<GradientStop Color="#FF126895" Offset="0.99"/>
+										<GradientStop Color="#FF3F7965" Offset="1"/>
+									</LinearGradientBrush>
+								</Path.Fill>
+							</Path>
+						</Grid>
+						<ControlTemplate.Triggers>
+							
+							<Trigger Property="IsChecked" Value="True">
+								<Trigger.ExitActions>
+									<BeginStoryboard x:Name="STB_ToUnCheck_BeginStoryboard" Storyboard="{StaticResource STB_ToUnCheck}"/>
+								</Trigger.ExitActions>
+								<Trigger.EnterActions>
+									<BeginStoryboard Storyboard="{StaticResource STB_ToCheck}"/>
+								</Trigger.EnterActions>
+							</Trigger>
+							
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Storyboard x:Key="OnMouseEnter1">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="REC_hover">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+		</Storyboard>
+		<LinearGradientBrush x:Key="FillBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FF6A6A6A" Offset="0.046"/>
+			<GradientStop Color="#FF787878" Offset="0.743"/>
+		</LinearGradientBrush>
+		<LinearGradientBrush x:Key="HoverBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFFFCF97" Offset="0.003"/>
+			<GradientStop Color="#FFFFBF75" Offset="0.007"/>
+			<GradientStop Color="#FFFFBF75" Offset="0.02"/>
+			<GradientStop Color="#FFFFAF50" Offset="0.023"/>
+			<GradientStop Color="#FFE68E12" Offset="0.964"/>
+		</LinearGradientBrush>
+	</UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="Mouse.MouseEnter">
+			<BeginStoryboard x:Name="OnMouseEnter1_BeginStoryboard" Storyboard="{StaticResource OnMouseEnter1}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="Mouse.MouseLeave">
+			<RemoveStoryboard BeginStoryboardName="OnMouseEnter1_BeginStoryboard"/>
+		</EventTrigger>
+	</UserControl.Triggers>
+	<Grid x:Name="LayoutRoot">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="1"/>
+		</Grid.RowDefinitions>
+		<Rectangle x:Name="REC_hover"  Grid.Row="1" Fill="{DynamicResource HoverBrush}" Visibility="Hidden">
+			<Rectangle.OpacityMask>
+				<LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+					<GradientStop Color="Black" Offset="0.808"/>
+					<GradientStop Offset="1"/>
+					<GradientStop Color="Black" Offset="0.199"/>
+					<GradientStop Color="#00000000"/>
+				</LinearGradientBrush>
+			</Rectangle.OpacityMask>
+		</Rectangle>
+		<Rectangle  Stroke="White"/>
+		<Rectangle Grid.Row="2" Fill="#FF626262"></Rectangle>
+		<Grid x:Name="IMG_HeadImage" HorizontalAlignment="Left" Margin="8,8,0,8" Grid.Row="1" Width="60">
+			<Path x:Name="PH_Disk" Data="M29.71652,5.5300005 L12.029073,5.5924991 5.0289997,23.091996 13.717,23.154499 13.717,30.091999 28.529499,30.091999 28.529499,22.998249 36.653999,22.966996 z M9.0500793,0.05 L32.716923,0.21666917 42.050003,22.800335 42.049999,38.383667 0.21666668,38.55 0.05,22.216999 z" Height="35.6" Canvas.Left="26.742" Stretch="Fill" Stroke="Black" StrokeThickness="0" Canvas.Top="470.95" Width="33.1" Fill="#FF787878" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Visibility="Hidden"/>
+			<Path x:Name="PH_Dir" Data="M106.30002,23.144001 C107.80002,23.331501 109.67502,26.081501 109.36252,26.956501 L106.3625,89.174758 C106.3625,89.674758 106.29974,90.1435 105.425,90.331 L5.0916663,90.185172 C4.2166667,89.809981 3.425,90.0185 2.8624993,88.519004 L0.05,27.269001 C0.05,25.062837 1.217743,23.269001 3.4249997,23.269001 z M13.206227,0.05 L43.508236,0.10233383 C45.299999,0.081499863 46.581249,1.0502499 46.612392,2.4562901 L46.612392,6.4877499 C46.936878,7.9479187 47.862694,8.8032549 49.341553,9.1023338 L103.45621,9.1752508 C104.83186,9.1752508 105.86266,11.769001 105.73774,15.082 L4.0500121,14.956741 3.9249997,10.851919 C4.2959714,9.7603224 5.0160961,8.993697 6.0499945,8.5186823 L9.2791539,8.4978474 C10.6125,8.5033758 11.285501,7.6156223 11.174981,5.7685478 L11.143731,1.862315 C11.07311,0.67433434 11.83125,0.050249863 13.206227,0.05 z" Height="35.7"  Stretch="Fill" StrokeThickness="0"  Width="35.4" Fill="{DynamicResource FillBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			<Path x:Name="PH_File" Data="M11.599999,50.956997 L53.167001,50.956997 53.167001,57.356998 11.599999,57.356998 z M11.599999,39.514999 L53.167001,39.514999 53.167001,45.914997 11.599999,45.914997 z M11.599999,29.015001 L53.167001,29.015001 53.167001,35.415001 11.599999,35.415001 z M4.9250038,23.257002 L4.8000038,62.132004 C4.8333366,65.882004 11.466668,66.965332 23.216669,65.465332 21.383335,75.548668 22.883335,81.798668 26.55,83.499001 L57.250001,83.499001 57.250001,23.265001 z M57.133321,3.5499997 L63.217,3.6333323 62.55,88.715996 20.799921,88.632294 0.13321381,67.79866 0.05,3.7983363 6.0500019,3.7986691 5.9875,9.2570009 C4.1125019,13.6945 6.6749981,17.9445 11.758336,18.173668 16.799999,17.8195 19.862501,12.5695 17.674999,8.8820019 L17.716667,3.8820002 24.966666,3.7986691 25.112498,8.8820019 C24.566692,13.172958 25.557594,15.855116 28.049999,16.965334 30.603231,18.704517 33.069719,18.540829 35.466668,16.881998 38.083975,15.208956 38.735792,12.469738 37.362497,8.632 L37.216619,3.8823357 45.549966,3.7990007 45.675,8.507 C43.112501,14.0695 46.675,18.3195 51.049977,18.29961 53.55,18.632 55.450757,17.400803 56.925,15.257 57.9875,13.8195 58.623254,11.060717 57.028619,8.2963572 z M51.612,0.05 C53.379311,0.05 54.811999,1.840861 54.811999,4.0500007 L54.811999,11.211001 C54.811999,13.420139 53.379311,15.211 51.612,15.211 49.844689,15.211 48.412,13.420139 48.412,11.211001 L48.412,4.0500007 C48.412,1.840861 49.844689,0.05 51.612,0.05 z M31.55,0.05 C33.317311,0.05 34.75,1.840861 34.749999,4.0500007 L34.749999,11.211001 C34.75,13.420139 33.317311,15.211 31.55,15.211 29.782689,15.211 28.35,13.420139 28.35,11.211001 L28.35,4.0500007 C28.35,1.840861 29.782689,0.05 31.55,0.05 z M11.675,0.05 C13.442311,0.05 14.875,1.840861 14.875,4.0500007 L14.875,11.211001 C14.875,13.420139 13.442311,15.211 11.675,15.211 9.9076889,15.211 8.4749992,13.420139 8.4749992,11.211001 L8.4749992,4.0500007 C8.4749992,1.840861 9.9076889,0.05 11.675,0.05 z" Height="42.4" Canvas.Left="197.381" Stretch="Fill" Stroke="Black" StrokeThickness="0" Canvas.Top="347.192" Width="33.7" Fill="{DynamicResource FillBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+			<Path x:Name="PH_Img" Data="M18.686321,14.688 L31.686781,27.562718 36.395283,20.33343 53.187,34.375 9.5200005,34.417 9.5616674,30.291931 z M46.670502,9.5500004 C49.119053,9.5500004 51.104,11.448984 51.104,13.7915 51.104,16.134016 49.119053,18.033001 46.670502,18.033001 44.221947,18.033001 42.237,16.134016 42.237,13.7915 42.237,11.448984 44.221947,9.5500004 46.670502,9.5500004 z M6.1540003,5.5500004 L6.1540003,37.700001 59.762001,37.700001 59.762001,5.5500004 z M0.05,0.05 L65.762001,0.05 65.762001,43.450001 0.05,43.450001 z" Height="34" Canvas.Left="262.76" Stretch="Fill" StrokeThickness="0.1" Canvas.Top="399.625" Width="45.2" Fill="{DynamicResource FillBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+			<Path x:Name="PH_Music" Data="M4.7420001,2.1669999 L41.179501,-3.3329999 41.680164,46.072734 C41.55466,52.041422 29.054603,56.916371 23.991878,51.853924 19.804192,46.54148 22.804325,37.354075 36.783882,39.291716 L36.67649,12.647083 10.550882,16.897055 9.8665891,52.666627 C9.8667172,56.97915 -4.0506972,64.541104 -9.1338483,55.228871 -11.258911,50.541438 -5.44652,42.479022 4.6998023,45.208344 z" Height="37.4" Canvas.Left="243.562" Stretch="Fill" StrokeThickness="0" Canvas.Top="347.192" Width="34.4" Fill="{DynamicResource FillBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" />
+			<Path x:Name="PH_Video" Data="M12.058,36.537003 L12.058,39.895001 38.666,39.895001 38.666,36.537003 z M12.058,29.079001 L12.058,32.437 38.666,32.437 38.666,29.079001 z M48.664085,19.455999 L48.986999,49.924 0.8520003,49.736504 0.88324952,28.612377 9.945671,19.550247 z M0.59300036,13.069 L7.0499992,19.403668 0.75799984,25.862 z M17.424934,7.383 L11.362,8.6744405 14.90392,14.57 20.820999,13.424501 z M30.132999,4.9239999 L24.257999,6.1119991 27.695499,12.487001 33.507999,11.143251 z M43.070499,2.5499998 L36.724998,3.5794414 40.257999,9.9090005 46.007999,8.8620006 z M46.101761,0.05 L47.716,10.257677 8.7163333,17.924 0.05,8.7783414 z" Height="38" Canvas.Left="197.381" Stretch="Fill" Stroke="Black" StrokeThickness="0" Canvas.Top="399.625" Width="40" Fill="{DynamicResource FillBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+		</Grid>
+		<TextBlock x:Name="TBK_FileName" Margin="72,20.667,72,0" Grid.Row="1" TextWrapping="noWrap" Text="TextBlock" VerticalAlignment="Top" FontSize="24" FontFamily="微软雅黑"/>
+		<CheckBox x:Name="CKB_Check" HorizontalAlignment="Right" Grid.Row="1" Style="{DynamicResource CheckBoxStyle1}" Width="68"/>
+		<Rectangle x:Name="REC_cLICK"  Grid.Row="1" Margin="0,0,91,0" Fill="White" Opacity="0"/>
+		
+	</Grid>
+</UserControl>

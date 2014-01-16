@@ -1,0 +1,70 @@
+E:\WPF\Calculator\Calculator\bin\Debug\Calculator.exe
+E:\WPF\Calculator\Calculator\bin\Debug\Calculator.pdb
+E:\WPF\Calculator\Calculator\bin\Debug\WPFToolkit.dll
+E:\WPF\Calculator\Calculator\bin\Debug\WPFToolkit.pdb
+E:\WPF\Calculator\Calculator\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\WPF\Calculator\Calculator\obj\x86\Debug\MainWindow.baml
+E:\WPF\Calculator\Calculator\obj\x86\Debug\MainWindow.g.cs
+E:\WPF\Calculator\Calculator\obj\x86\Debug\App.g.cs
+E:\WPF\Calculator\Calculator\obj\x86\Debug\Calculator_MarkupCompile.cache
+E:\WPF\Calculator\Calculator\obj\x86\Debug\Calculator.g.resources
+E:\WPF\Calculator\Calculator\obj\x86\Debug\Calculator.Properties.Resources.resources
+E:\WPF\Calculator\Calculator\obj\x86\Debug\Calculator.exe
+E:\WPF\Calculator\Calculator\obj\x86\Debug\Calculator.pdb
+E:\WPF\Calculator\Calculator\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+E:\WPF\Calculator\Calculator\obj\x86\Debug\Calculator_MarkupCompile.lref
+E:\WPF\Calculator\Calculator\obj\x86\Debug\View\MainViewer.g.cs
+E:\WPF\Calculator\Calculator\obj\x86\Debug\View\Title.g.cs
+E:\WPF\Calculator\Calculator\obj\x86\Debug\View\Title.baml
+E:\WPF\Calculator\Calculator\obj\x86\Debug\View\MainViewer.baml
+E:\WPF\Calculator\Calculator\obj\x86\Debug\View\MyCalculator.baml
+E:\WPF\Calculator\Calculator\obj\x86\Debug\View\MyCalculator.g.cs
+E:\WPF\Calculator\Calculator\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\WPF\Calculator\Calculator\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\Calculator.exe
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\Calculator.pdb
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\bin\Debug\Calculator.exe
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\bin\Debug\Calculator.pdb
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\bin\Debug\WPFToolkit.dll
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\bin\Debug\WPFToolkit.pdb
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\View\MyCalculator.baml
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\MainWindow.g.cs
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\View\MyCalculator.g.cs
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\View\MainViewer.g.cs
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\View\Title.g.cs
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\App.g.cs
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\Calculator_MarkupCompile.cache
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\Calculator_MarkupCompile.lref
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\MainWindow.baml
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\View\MainViewer.baml
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\View\Title.baml
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\Calculator.g.resources
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\Calculator.Properties.Resources.resources
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\ui\Desktop\Calculator 2011-08-11\Calculator\Calculator\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\Calculator.exe
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\Calculator.pdb
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\View\MyCalculator.baml
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\MainWindow.g.cs
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\View\MyCalculator.g.cs
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\View\MainViewer.g.cs
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\Calculator_MarkupCompile.cache
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\Calculator_MarkupCompile.lref
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\MainWindow.baml
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\bin\Debug\Calculator.exe
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\bin\Debug\Calculator.pdb
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\bin\Debug\WPFToolkit.dll
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\bin\Debug\WPFToolkit.pdb
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\View\MainViewer.baml
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\Calculator.g.resources
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\Calculator.Properties.Resources.resources
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\bin\Debug\CalculatorConfig.xml
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\obj\x86\Debug\Calculator_Content.g.cs
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\bin\Debug\UpBan.exe
+F:\workspace\AAllVersions\Blue84\AProject\Calculator\Calculator\bin\Debug\UpBan.pdb

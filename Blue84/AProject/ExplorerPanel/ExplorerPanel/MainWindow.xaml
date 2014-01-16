@@ -1,0 +1,9 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ExplorerPanel" x:Class="ExplorerPanel.MainWindow"
+        Title="MainWindow" Height="480" Width="800" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid Background="Black">
+    	<local:MainControl/>
+    </Grid>
+</Window>

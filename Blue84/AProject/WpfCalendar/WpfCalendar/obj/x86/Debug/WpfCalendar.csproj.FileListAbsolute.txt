@@ -1,0 +1,89 @@
+E:\WPF\WpfCalendar\WpfCalendar\bin\Debug\WpfCalendar.exe
+E:\WPF\WpfCalendar\WpfCalendar\bin\Debug\WpfCalendar.pdb
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\MainWindow.g.cs
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\App.g.cs
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar_MarkupCompile.cache
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar_MarkupCompile.lref
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\MainWindow.baml
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.g.resources
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.Properties.Resources.resources
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.exe
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.pdb
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.exe
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.pdb
+K:\WpfCalendar\WpfCalendar\bin\Debug\WpfCalendar.exe
+K:\WpfCalendar\WpfCalendar\bin\Debug\WpfCalendar.pdb
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\ResolveAssemblyReference.cache
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\CalendarTool.baml
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\MyCalendar.baml
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\MainViewer.g.cs
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\MainWindow.g.cs
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\CalendarTool.g.cs
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\MyCalendar.g.cs
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\Title.g.cs
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\View\CalendarTest.g.cs
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\App.g.cs
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar_MarkupCompile.cache
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar_MarkupCompile.lref
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\MainViewer.baml
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\MainWindow.baml
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\Title.baml
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\View\CalendarTest.baml
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.g.resources
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.Properties.Resources.resources
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\GenerateResource.read.1.tlog
+K:\WpfCalendar\WpfCalendar\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\View\MainViewer.g.cs
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\View\Title.g.cs
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\View\MainViewer.baml
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\View\Title.baml
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\View\MyCalendar.baml
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\View\MyCalendar.g.cs
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\WPF\WpfCalendar\WpfCalendar\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\bin\Debug\WpfCalendar.exe
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\bin\Debug\WpfCalendar.pdb
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\View\MyCalendar.baml
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\View\MainViewer.g.cs
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\MainWindow.g.cs
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\View\MyCalendar.g.cs
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\View\Title.g.cs
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\App.g.cs
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar_MarkupCompile.cache
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar_MarkupCompile.lref
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\View\MainViewer.baml
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\MainWindow.baml
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\View\Title.baml
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.g.resources
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.Properties.Resources.resources
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.exe
+C:\Users\ui\Desktop\WpfCalendar 2011-08-12\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.pdb
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.exe
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.pdb
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\bin\Debug\CalendarConfig.xml
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\bin\Debug\WpfCalendar.exe
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\bin\Debug\WpfCalendar.pdb
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\View\MyCalendar.baml
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\View\MainViewer.g.cs
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\MainWindow.g.cs
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\View\MyCalendar.g.cs
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar_Content.g.cs
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar_MarkupCompile.cache
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar_MarkupCompile.lref
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\View\MainViewer.baml
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\MainWindow.baml
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.g.resources
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\WpfCalendar.Properties.Resources.resources
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\bin\Debug\UpBan.exe
+F:\workspace\AAllVersions\Blue84\AProject\WpfCalendar\WpfCalendar\bin\Debug\UpBan.pdb

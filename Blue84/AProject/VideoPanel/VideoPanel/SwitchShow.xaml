@@ -1,0 +1,19 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d" xmlns:local="clr-namespace:VideoPanel"
+	x:Class="VideoPanel.SwitchShow"
+	x:Name="UserControl"
+	Width="800" Height="398">
+	<Grid>
+		<Grid x:Name="CC_Main" >
+			<local:MyCoverFlow x:Name="UC_CoverFlow"/>
+		</Grid>
+		<Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,22" MinWidth="238" MaxWidth="485">
+			<Border Grid.Column="1" Background="#40000000" CornerRadius="12" Margin="0,0"></Border>
+			<TextBlock x:Name="TBK_Title" Foreground="White" Text="视频名称" VerticalAlignment="Bottom"  MinWidth="191" FontSize="26.667" FontFamily="黑体" Margin="5" TextAlignment="Center"/>
+		</Grid>
+	</Grid>	
+</UserControl>

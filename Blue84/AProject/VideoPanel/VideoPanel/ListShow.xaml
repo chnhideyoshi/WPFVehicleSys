@@ -1,0 +1,191 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="VideoPanel.ListShow"
+	x:Name="UserControl"
+	Height="316" Width="721.5">
+	<UserControl.Resources>
+		<BitmapImage x:Key="BI_DefaultBack" UriSource="Pictures/ListShow/defaultBack.jpg"/>
+		<ImageBrush x:Key="DefaultBrush" ImageSource="{StaticResource BI_DefaultBack}"/>
+		<Style x:Key="ImageButton" TargetType="{x:Type Button}">
+				<Setter Property="Width" Value="215"/>
+				<Setter Property="Height" Value="154.3"/>
+				<Setter Property="IsTabStop" Value="false"/>
+				<Setter Property="Foreground" Value="#FFB8B8B8"/>
+				<Setter Property="FontSize" Value="18.667"/>
+				<Setter Property="FontFamily" Value="黑体"/>
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="{x:Type Button}">
+							<ControlTemplate.Resources>
+								<Storyboard x:Key="OnMouseEnter1">
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectanglehover">
+										<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+									</ObjectAnimationUsingKeyFrames>
+									
+								</Storyboard>
+								<Storyboard x:Key="OnMouseLeave1">
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectanglehover">
+										<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+									</ObjectAnimationUsingKeyFrames>
+									
+								</Storyboard>
+							</ControlTemplate.Resources>
+							<Grid>
+								<Rectangle x:Name="rectangleb"  Margin="15,13,15,42" Stroke="Black" StrokeThickness="2">
+									<Rectangle.Fill>
+										<ImageBrush ImageSource="{StaticResource BI_DefaultBack}"/>
+									</Rectangle.Fill>
+								</Rectangle>
+								<Rectangle x:Name="rectangle" Fill="{TemplateBinding Background}" Margin="15,13,15,42" Stroke="Black" StrokeThickness="2" d:IsHidden="True">
+									
+								</Rectangle>
+								<Rectangle x:Name="rectanglehover" Margin="12,10,12.2,39" RadiusY="2" RadiusX="2" Visibility="Hidden" Stroke="White" StrokeThickness="5"/>
+								<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="12,0,12,13"/>
+							</Grid>
+							<ControlTemplate.Triggers>
+								<EventTrigger RoutedEvent="Mouse.MouseLeave">
+									<RemoveStoryboard BeginStoryboardName="OnMouseEnter1_BeginStoryboard"/>
+								</EventTrigger>
+								<Trigger Property="IsCancel" Value="False"/>
+								
+								<EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="rectangle">
+									<BeginStoryboard x:Name="OnMouseEnter1_BeginStoryboard" Storyboard="{StaticResource OnMouseEnter1}"/>
+								</EventTrigger>
+								<Trigger Property="IsFocused" Value="True"/>
+								<Trigger Property="IsDefaulted" Value="True"/>
+								<Trigger Property="IsMouseOver" Value="True">
+									<Setter Property="Foreground" Value="White"/>
+								</Trigger>
+								<Trigger Property="IsPressed" Value="True"/>
+								<Trigger Property="IsEnabled" Value="False"/>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style x:Key="MySimpleScrollRepeatButtonStyle" d:IsControlPart="True" TargetType="{x:Type RepeatButton}">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderBrush" Value="Transparent"/>
+			<Setter Property="IsTabStop" Value="false"/>
+			<Setter Property="Focusable" Value="false"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type RepeatButton}">
+						<Grid>
+							<Rectangle Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+			<Style x:Key="MySimpleSliderThumb" d:IsControlPart="True" TargetType="{x:Type Thumb}">
+			<Setter Property="SnapsToDevicePixels" Value="true"/>
+			<Setter Property="Height" Value="14"/>
+			<Setter Property="Width" Value="14"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Thumb}">
+						<Grid>
+							
+							<Rectangle x:Name="Ellipse" StrokeThickness="0" RadiusY="4" RadiusX="4">
+								<Rectangle.Fill>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#FFE0E0E2" Offset="0"/>
+										<GradientStop Color="#FFE0E0E0" Offset="0.046"/>
+										<GradientStop Color="#FFDFE0E2" Offset="1"/>
+									</LinearGradientBrush>
+								</Rectangle.Fill>
+							</Rectangle>
+							<Path Data="M2.5708113,0.54585097 L2.7895597,0.77096202 1.1959106,2.0833806 3.0087562,3.317679 2.8051846,3.589662 0.7429243,2.046875 z" Fill="#FF767575" HorizontalAlignment="Left" Height="3.044" Margin="3.743,0,0,0" Stretch="Fill" VerticalAlignment="Center" Width="2.265" />
+							<Path Data="M2.9515081,0.57179396 L2.7637659,0.86396422 4.3758049,2.0250793 2.7635405,3.1480424 2.9980412,3.4449893 4.9538163,2.040706 z" Fill="#FF767575" HorizontalAlignment="Right" Height="2.872" Margin="0,0,4.195,0" Stretch="Fill" VerticalAlignment="Center" Width="2.187" />
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+			<LinearGradientBrush x:Key="ScrollBackBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+				<GradientStop Color="#FF92959A" Offset="0.083"/>
+				<GradientStop Color="#FF7A7A82" Offset="0.111"/>
+				<GradientStop Color="#FF7A7A82" Offset="0.194"/>
+				<GradientStop Color="#FF636469" Offset="0.222"/>
+				<GradientStop Color="#FF242623" Offset="0.972"/>
+			</LinearGradientBrush>
+		
+			<Style x:Key="MySimpleSlider" TargetType="{x:Type Slider}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Slider}">
+						<Grid x:Name="GridRoot">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+							<Rectangle RadiusY="10" RadiusX="10" Fill="#72000000" Grid.RowSpan="2" Margin="0"></Rectangle>
+							<!-- TickBar shows the ticks for Slider -->
+							<TickBar Visibility="Collapsed" x:Name="TopTick" Height="4" SnapsToDevicePixels="True" Placement="Top"/>
+							<Border Grid.Row="1" Margin="4,0" x:Name="Border" Height="7" Background="{DynamicResource ScrollBackBrush}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3"/>
+							
+							<!-- The Track lays out the repeat buttons and thumb -->
+							<Track Grid.Row="1" x:Name="PART_Track" Height="16" Orientation="Vertical" Margin="4">
+								<Track.Thumb>
+									<Thumb Style="{StaticResource MySimpleSliderThumb}" Height="7" Width="38"/>
+								</Track.Thumb>
+								<Track.IncreaseRepeatButton>
+									<RepeatButton Style="{StaticResource MySimpleScrollRepeatButtonStyle}" Command="Slider.IncreaseLarge"/>
+								</Track.IncreaseRepeatButton>
+								<Track.DecreaseRepeatButton>
+									<RepeatButton Style="{StaticResource MySimpleScrollRepeatButtonStyle}" Command="Slider.DecreaseLarge"/>
+								</Track.DecreaseRepeatButton>
+							</Track>
+							
+							<TickBar Visibility="Collapsed" Grid.Row="2" x:Name="BottomTick" Height="4" SnapsToDevicePixels="True" Placement="Bottom" Fill="{TemplateBinding Foreground}"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="TickPlacement" Value="TopLeft">
+								<Setter Property="Visibility" Value="Visible" TargetName="TopTick"/>
+							</Trigger>
+							<Trigger Property="TickPlacement" Value="BottomRight">
+								<Setter Property="Visibility" Value="Visible" TargetName="BottomTick"/>
+							</Trigger>
+							<Trigger Property="TickPlacement" Value="Both">
+								<Setter Property="Visibility" Value="Visible" TargetName="TopTick"/>
+								<Setter Property="Visibility" Value="Visible" TargetName="BottomTick"/>
+							</Trigger>
+							<!-- Use a rotation to create a Vertical Slider form the default Horizontal -->
+							<Trigger Property="Orientation" Value="Vertical">
+								<Setter Property="LayoutTransform" TargetName="GridRoot">
+									<Setter.Value>
+										<RotateTransform Angle="-90"/>
+									</Setter.Value>
+								</Setter>
+								<!-- Track rotates itself based on orientation so need to force it back -->
+								<Setter TargetName="PART_Track" Property="Orientation" Value="Horizontal"/>
+							</Trigger>
+							
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
+	<Grid>
+		<Canvas x:Name="CA_Main"  ClipToBounds="True" Background="#00000000" Margin="54,7.5,0,0" Height="300">
+			<WrapPanel x:Name="WP_Main" MinWidth="647" RenderTransformOrigin="0.5,0.5" Canvas.Left="0" Canvas.Top="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="669">
+				<Button Style="{DynamicResource ImageButton}"></Button>
+			</WrapPanel>
+		</Canvas>
+		<Slider x:Name="SL_Down"  Height="300" Width="23" Orientation="Vertical" Style="{StaticResource MySimpleSlider}" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Margin="10,0,0,0" Canvas.Left="9" Canvas.Top="13">
+			<Slider.RenderTransform>
+				<RotateTransform Angle="180"/>
+			</Slider.RenderTransform>
+		</Slider>
+		<Canvas x:Name="CA_ExpSL" Margin="0,8" HorizontalAlignment="Left" Width="54" Background="#00000000">
+			
+		</Canvas>
+	</Grid>
+</UserControl>

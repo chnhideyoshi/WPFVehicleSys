@@ -1,0 +1,111 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:SystemHelp"
+	x:Class="SystemHelp.MainWindow"
+	x:Name="Window"
+	Title="MainWindow"
+	Width="800" Height="480" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+	<Window.Resources>
+		<Storyboard x:Key="STB_SwitchToSub">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="grid">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-800"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="STB_ReturnToList">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="grid">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-800"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Style x:Key="BackButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="VerticalAlignment" Value="Bottom"/>
+			<Setter Property="Width" Value="119.9"/>
+			<Setter Property="HorizontalAlignment" Value="Left"/>
+			<Setter Property="Height" Value="58.8"/>
+			<Setter Property="Margin" Value="0"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid Background="#00000000">
+							<Border CornerRadius="0,12,12,0" Margin="0,10,39,4">
+								<Border.Background>
+									<LinearGradientBrush EndPoint="0.053,0.534" StartPoint="0.946,0.52">
+										<GradientStop Color="#FF321702" Offset="0.984"/>
+										<GradientStop Color="#FF905706" Offset="0.156"/>
+										<GradientStop Color="#FF905F1A"/>
+									</LinearGradientBrush>
+								</Border.Background>
+								<ContentPresenter Margin="0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+							</Border>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="FontFamily" Value="黑体"/>
+			<Setter Property="FontSize" Value="20"/>
+			<Setter Property="Foreground" Value="#FFE9E9E9"/>
+		</Style>
+		<Style x:Key="ListButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="VerticalAlignment" Value="Bottom"/>
+			<Setter Property="Width" Value="119.9"/>
+			<Setter Property="HorizontalAlignment" Value="right"/>
+			<Setter Property="Height" Value="58.8"/>
+			<Setter Property="Margin" Value="0"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid Background="#00000000">
+							<Border CornerRadius="12,0,0,12" Margin="39,10,0,4">
+								<Border.Background>
+									<LinearGradientBrush EndPoint="0.053,0.534" StartPoint="0.946,0.52">
+										<GradientStop Color="#FF321702" Offset="0.016"/>
+										<GradientStop Color="#FF905706" Offset="0.844"/>
+										<GradientStop Color="#FF905F1A" Offset="1"/>
+									</LinearGradientBrush>
+								</Border.Background>
+								<ContentPresenter Margin="0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+							</Border>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="FontFamily" Value="黑体"/>
+			<Setter Property="FontSize" Value="20"/>
+			<Setter Property="Foreground" Value="#FFE9E9E9"/>
+		</Style>
+	</Window.Resources>
+	<Grid>
+		<Canvas x:Name="LayoutRoot" ClipToBounds="True">
+			<Canvas.Background>
+				<ImageBrush ImageSource="Pictures/MainBack.jpg"/>
+			</Canvas.Background>
+			<Grid x:Name="grid" Height="480" Width="1600" Canvas.Left="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.5*"/>
+					<ColumnDefinition Width="0.5*"/>
+				</Grid.ColumnDefinitions>
+				<local:MainList x:Name="UC_MainList" />
+				<local:MainShow x:Name="UC_MainShow" Grid.Column="1" />
+			</Grid>
+		</Canvas>
+		<Button x:Name="BTN_BackHome" Content="退出"  Style="{StaticResource BackButtonStyle}" />
+		<Button x:Name="BTN_Switch" Content="功能"  Style="{StaticResource ListButtonStyle}"  Visibility="Collapsed"/>
+	</Grid>
+</Window>

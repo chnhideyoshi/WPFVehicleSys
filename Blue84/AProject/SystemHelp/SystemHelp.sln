@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemHelp", "SystemHelp\SystemHelp.csproj", "{9df52fe1-73a8-4035-8855-e4666eb4f1ec}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DF52FE1-73A8-4035-8855-E4666EB4F1EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DF52FE1-73A8-4035-8855-E4666EB4F1EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DF52FE1-73A8-4035-8855-E4666EB4F1EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DF52FE1-73A8-4035-8855-E4666EB4F1EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

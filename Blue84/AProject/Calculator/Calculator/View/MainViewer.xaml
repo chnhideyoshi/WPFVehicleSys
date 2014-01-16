@@ -1,0 +1,30 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:Calculator.View"
+	xmlns:UpBan="clr-namespace:UpBan;assembly=UpBan"
+	mc:Ignorable="d"
+	x:Class="Calculator.View.MainViewer"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480" Width="800" Height="480">
+	<Grid x:Name="LayoutRoot">
+		<Grid.Background>
+			<ImageBrush ImageSource="/Calculator;component/Pictures/MainView/MainBack.png"/>
+		</Grid.Background>
+		<Grid Margin="0" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+			<local:MyCalculator Width="Auto" Height="Auto" Margin="0">
+				<local:MyCalculator.Background>
+					<ImageBrush ImageSource="/Calculator;component/Pictures/MainView/frameback.png"/>
+				</local:MyCalculator.Background>
+			</local:MyCalculator>
+			
+		</Grid>	
+		
+		
+		<UpBan:UpBanControl VerticalAlignment="Top" d:LayoutOverrides="Height"/>	
+		
+		
+	</Grid>
+</UserControl>

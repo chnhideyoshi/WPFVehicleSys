@@ -1,0 +1,25 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="ExplorerPanel.UpBan"
+	x:Name="UserControl"
+	Width="800" Height="40">
+	<Grid x:Name="LayoutRoot">
+		<Grid.Background>
+			<ImageBrush ImageSource="Pictures/Upban_Back.png"/>
+		</Grid.Background>
+		<Rectangle HorizontalAlignment="Center" Width="165" Margin="0">
+			<Rectangle.Fill>
+				<ImageBrush ImageSource="Pictures/UpBan_Title.png"/>
+			</Rectangle.Fill>
+		</Rectangle>
+		<TextBlock HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Center" Text="2001年12月12日 23:32" Foreground="White" FontFamily="时尚简体字" FontSize="14.667"/>
+		<Image HorizontalAlignment="Right" VerticalAlignment="Center" Source="Pictures/3G.png" Width="29.3" Margin="0,0,48,0"/>
+		<Image HorizontalAlignment="Right" VerticalAlignment="Center" Source="Pictures/volume2.png" Width="26.3" Margin="0,0,87,0"/>
+		<Image HorizontalAlignment="Right" VerticalAlignment="Center" Source="Pictures/BlueTooth.png" Width="26.3" Margin="0,0,12,0"/>
+		<Image HorizontalAlignment="Right" VerticalAlignment="Center" Source="Pictures/xinhao.png" Width="26.3" Margin="0,0,127,0"/>
+	</Grid>
+</UserControl>

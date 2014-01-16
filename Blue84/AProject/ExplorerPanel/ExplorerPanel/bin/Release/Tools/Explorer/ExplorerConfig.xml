@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <SupportedPictureExtensionList>
+    <Extension value=".JPG"/>
+    <Extension value=".JPEG"/>
+    <Extension value=".BMP"/>
+    <Extension value=".GIF"/>
+    <Extension value=".PNG"/>
+  </SupportedPictureExtensionList>
+  <SupportedVideoExtensionList>
+    <Extension value=".WMV"/>
+    <Extension value=".MP4"/>
+    <Extension value=".MPG"/>
+    <Extension value=".AVI"/>
+    <Extension value=".RM"/>
+    <Extension value=".RMVB"/>
+    <Extension value=".FLV"/>
+    <Extension value=".MKV"/>
+  </SupportedVideoExtensionList>
+  <SupportedMusicExtensionList>
+    <Extension value=".WMA"/>
+    <Extension value=".MP3"/>
+  </SupportedMusicExtensionList>
+  <SupportedBookExtensionList>
+    <Extension value=".TXT"/>
+  </SupportedBookExtensionList>
+  <IsTopMost value="false"/>
+</Settings>

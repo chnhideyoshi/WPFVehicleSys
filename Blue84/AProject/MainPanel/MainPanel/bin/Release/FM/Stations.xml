@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stations>
+  <station rate="100.4" categary="FM" />
+  <station rate="90.5" categary="AM" />
+  <station rate="88.8" categary="FM" />
+  <station rate="121.4" categary="FM" />
+  <station rate="100.4" categary="AM" />
+  <station rate="78.5" categary="AM" />
+  <station rate="100.4" categary="FM" />
+</stations>

@@ -1,0 +1,238 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d" xmlns:local="clr-namespace:PictureBrowserPanel"
+	x:Class="PictureBrowserPanel.ExpandShow"
+	x:Name="UserControl" Width="800" Height="480"
+	>
+
+	<UserControl.Resources>
+		  <Storyboard x:Key="STB_ImageSwitchForward2">
+				<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="MainShow">
+					<EasingPointKeyFrame KeyTime="0" Value="0,0.5"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="NextShow">
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard x:Key="STB_ImageSwitchForward2Back">
+				<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="MainShow">
+					<EasingPointKeyFrame KeyTime="0" Value="0,0.5"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="NextShow">
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard x:Key="STB_ImageSwitchBackward2">
+				<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="MainShow">
+					<EasingPointKeyFrame KeyTime="0" Value="1,0.5"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="LastShow">
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard x:Key="STB_ImageSwitchBackward2Back">
+				<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="MainShow">
+					<EasingPointKeyFrame KeyTime="0" Value="1,0.5"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="LastShow">
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard x:Key="STB_RotateUC90" >
+				<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="MainShow">
+					<EasingPointKeyFrame KeyTime="0" Value="0.5,0.5"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.6"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.8"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="90"/>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard x:Key="STB_RotateUC180" >
+				<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="MainShow">
+					<EasingPointKeyFrame KeyTime="0" Value="0.5,0.5"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0.6"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="90"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="180"/>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard x:Key="STB_RotateUC270" >
+				<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="MainShow">
+					<EasingPointKeyFrame KeyTime="0" Value="0.5,0.5"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.6"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.8"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="180"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="270"/>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard x:Key="STB_RotateUC360" >
+				<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="MainShow">
+					<EasingPointKeyFrame KeyTime="0" Value="0.5,0.5"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0.6"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="270"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="360"/>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			
+			<Storyboard x:Key="STB_RotateC90" >
+				<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="MainShow">
+					<EasingPointKeyFrame KeyTime="0" Value="0.5,0.5"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.6"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.8"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="360"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="270"/>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard x:Key="STB_RotateC180" >
+				<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="MainShow">
+					<EasingPointKeyFrame KeyTime="0" Value="0.5,0.5"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0.6"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="270"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="180"/>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard x:Key="STB_RotateC270" >
+				<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="MainShow">
+					<EasingPointKeyFrame KeyTime="0" Value="0.5,0.5"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.6"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.8"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="180"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="90"/>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard x:Key="STB_RotateC360" >
+				<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="MainShow">
+					<EasingPointKeyFrame KeyTime="0" Value="0.5,0.5"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0.6"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0.75"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="MainShow">
+					<EasingDoubleKeyFrame KeyTime="0" Value="90"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+	</UserControl.Resources>
+	<Grid x:Name="LayoutRoot" Background="Black">
+		<Rectangle x:Name="NextShow" Width="800" Height="480" RenderTransformOrigin="1,0.5">
+			<Rectangle.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform x:Name="STF_NextShow" ScaleX="0"/>
+					<SkewTransform/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Rectangle.RenderTransform>
+		</Rectangle>
+		<Rectangle x:Name="LastShow" Width="800" Height="480" RenderTransformOrigin="0,0.5">
+			<Rectangle.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform x:Name="STF_LastShow"  ScaleX="0"/>
+					<SkewTransform/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Rectangle.RenderTransform>
+		</Rectangle>
+		<Rectangle x:Name="MainShow" Width="800" Height="480" HorizontalAlignment="left" RenderTransformOrigin="0,0.5" >
+			<Rectangle.LayoutTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Rectangle.LayoutTransform>
+			<Rectangle.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform x:Name="STF_MainShow" ScaleX="1" />
+					<SkewTransform/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Rectangle.RenderTransform>
+		</Rectangle>
+		<Canvas x:Name="CA_ControlCanvas" Background="White" Opacity="0">
+			
+		</Canvas>
+		<local:ViewConsole x:Name="UC_ViewConsole" Height="56" Margin="0,0,0,30" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+	</Grid>
+</UserControl>

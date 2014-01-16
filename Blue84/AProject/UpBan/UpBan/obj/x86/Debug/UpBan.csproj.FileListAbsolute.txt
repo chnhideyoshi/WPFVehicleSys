@@ -1,0 +1,15 @@
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\bin\Debug\UpBan.exe
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\bin\Debug\UpBan.pdb
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\obj\x86\Debug\MainWindow.baml
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\obj\x86\Debug\UpBanControl.baml
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\obj\x86\Debug\MainWindow.g.cs
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\obj\x86\Debug\UpBanControl.g.cs
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\obj\x86\Debug\App.g.cs
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\obj\x86\Debug\UpBan_MarkupCompile.cache
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\obj\x86\Debug\UpBan.g.resources
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\obj\x86\Debug\UpBan.Properties.Resources.resources
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\obj\x86\Debug\UpBan.exe
+F:\workspace\AAllVersions\Blue84\AProject\UpBan\UpBan\obj\x86\Debug\UpBan.pdb

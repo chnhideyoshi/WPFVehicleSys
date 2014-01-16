@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <Paths>
+    <Path name="Book" value="Book/BookReader.exe"/>
+    <Path name="Picture" value="Picture/PictureBrowserPanel.exe"/>
+    <Path name="Music" value="Music/MusicPlayer.exe"/>
+    <Path name="Video" value="Video/VideoPanel.exe"/>
+    <Path name="GPS" value=""/>
+    <Path name="Caculator" value="Tools/Calculator/Calculator.exe"/>
+    <Path name="Explorer" value="Tools/Explorer/ExplorerPanel.exe"/>
+    <Path name="Calindar" value="Tools/Calendar/WpfCalendar.exe"/>
+    <Path name="Setting" value="Settings/Settings.exe"/>
+    <Path name="Help" value="Help/SystemHelp.exe"/>
+    <Path name="FM" value="FM/FMRadio.exe"/>
+  </Paths>
+  <IsTopMost value="false"/>
+  <AutoReStart value="false"/>
+</Settings>

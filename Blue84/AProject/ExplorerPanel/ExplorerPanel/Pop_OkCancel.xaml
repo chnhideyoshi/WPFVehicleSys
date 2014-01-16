@@ -1,0 +1,72 @@
+﻿<Window x:Class="ExplorerPanel.Pop_OkCancel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" x:Name="MainWindow"
+             Height="480" Width="800" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True" Background="{x:Null}" WindowStartupLocation="CenterScreen">
+	<Window.Resources>
+		<Style x:Key="DownButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontSize" Value="19"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<ControlTemplate.Resources>
+							<Storyboard x:Key="OnMouseEnter1">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+									<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid Margin="0,1,0,2" Background="#00000000">
+							<Rectangle x:Name="rectangle" RadiusY="4" RadiusX="2" Opacity="0">
+								<Rectangle.Fill>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#FF676F78" Offset="0.017"/>
+										<GradientStop Color="#FF0054C4" Offset="1"/>
+									</LinearGradientBrush>
+								</Rectangle.Fill></Rectangle>
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<EventTrigger RoutedEvent="Mouse.MouseLeave">
+								<RemoveStoryboard BeginStoryboardName="OnMouseEnter1_BeginStoryboard"/>
+							</EventTrigger>
+							<EventTrigger RoutedEvent="Mouse.MouseEnter">
+								<BeginStoryboard x:Name="OnMouseEnter1_BeginStoryboard" Storyboard="{StaticResource OnMouseEnter1}"/>
+							</EventTrigger>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+	<Grid x:Name="OverLay" Background="#B2000000">
+	    <Grid Width="280" HorizontalAlignment="Center" VerticalAlignment="Center" Height="200">
+	    	<Grid.ColumnDefinitions>
+	    		<ColumnDefinition Width="0.5*"/>
+	    		<ColumnDefinition Width="0.5*"/>
+	    	</Grid.ColumnDefinitions>
+	    	<Grid.RowDefinitions>
+	    		<RowDefinition Height="0.73*"/>
+	    		<RowDefinition Height="0.27*"/>
+	    	</Grid.RowDefinitions>
+	       <Rectangle x:Name="rectangle" Stroke="White" RadiusY="4" RadiusX="4" StrokeThickness="1.8" Fill="#B3000000" Grid.RowSpan="2" Grid.ColumnSpan="2"></Rectangle>  
+		   <Line x:Name="line" X2="280" Y1="146" Y2="{Binding Y1, ElementName=line}" Stroke="{Binding Stroke, ElementName=rectangle}" StrokeThickness="1.8" Grid.RowSpan="2" Grid.ColumnSpan="2"></Line> 
+		   <Line x:Name="line2" Stroke="{Binding Stroke, ElementName=rectangle}" X2="{Binding X1, ElementName=line2}" StrokeThickness="1.8" Y1="146" Y2="215" X1="141" Grid.RowSpan="2" Grid.ColumnSpan="2" ></Line>
+		   <ContentControl x:Name="CC_Main" Grid.ColumnSpan="2" Margin="3,3,3,0" Foreground="White" FontSize="18.667" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" >
+		   		<TextBlock x:Name="TBK_Content" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="267" TextWrapping="Wrap">
+		   			
+				</TextBlock>
+			</ContentControl>
+		   <Button x:Name="BTN_Ok" Content="确定" Grid.Row="1" Style="{DynamicResource DownButtonStyle}"  FontFamily="黑体" Margin="2,0,0,0"/>
+		   <Button x:Name="BTN_Cancel"  Content="取消" Grid.Row="1" Grid.Column="1" Style="{DynamicResource DownButtonStyle}" Margin="2,0"></Button>
+	    </Grid>
+	</Grid>
+</Window>

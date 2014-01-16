@@ -1,0 +1,160 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="SystemHelp.MainShow"
+	x:Name="UserControl"
+	Width="800" Height="480">
+	<UserControl.Resources>
+		<Style x:Key="MySimpleScrollRepeatButtonStyle"  TargetType="{x:Type RepeatButton}">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderBrush" Value="Transparent"/>
+			<Setter Property="IsTabStop" Value="false"/>
+			<Setter Property="Focusable" Value="false"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type RepeatButton}">
+						<Grid>
+							<Rectangle Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+			<Style x:Key="MySimpleSliderThumb"  TargetType="{x:Type Thumb}">
+			<Setter Property="SnapsToDevicePixels" Value="true"/>
+			<Setter Property="Height" Value="14"/>
+			<Setter Property="Width" Value="14"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Thumb}">
+						<Grid>
+							
+							<Rectangle x:Name="Ellipse" StrokeThickness="0" RadiusY="4" RadiusX="4">
+								<Rectangle.Fill>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#FFE0E0E2" Offset="0"/>
+										<GradientStop Color="#FFE0E0E0" Offset="0.046"/>
+										<GradientStop Color="#FFDFE0E2" Offset="1"/>
+									</LinearGradientBrush>
+								</Rectangle.Fill>
+							</Rectangle>
+							<Path Data="M2.5708113,0.54585097 L2.7895597,0.77096202 1.1959106,2.0833806 3.0087562,3.317679 2.8051846,3.589662 0.7429243,2.046875 z" Fill="#FF767575" HorizontalAlignment="Left" Height="3.044" Margin="3.743,0,0,0" Stretch="Fill" VerticalAlignment="Center" Width="2.265" />
+							<Path Data="M2.9515081,0.57179396 L2.7637659,0.86396422 4.3758049,2.0250793 2.7635405,3.1480424 2.9980412,3.4449893 4.9538163,2.040706 z" Fill="#FF767575" HorizontalAlignment="Right" Height="2.872" Margin="0,0,4.195,0" Stretch="Fill" VerticalAlignment="Center" Width="2.187" />
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+			<LinearGradientBrush x:Key="ScrollBackBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+				<GradientStop Color="#FF92959A" Offset="0.083"/>
+				<GradientStop Color="#FF7A7A82" Offset="0.111"/>
+				<GradientStop Color="#FF7A7A82" Offset="0.194"/>
+				<GradientStop Color="#FF636469" Offset="0.222"/>
+				<GradientStop Color="#FF242623" Offset="0.972"/>
+			</LinearGradientBrush>
+		
+			<Style x:Key="MySimpleSlider" TargetType="{x:Type Slider}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Slider}">
+						<Grid x:Name="GridRoot">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+							<Rectangle RadiusY="10" RadiusX="10" Fill="#72000000" Grid.RowSpan="2" Margin="0"></Rectangle>
+							<!-- TickBar shows the ticks for Slider -->
+							<TickBar Visibility="Collapsed" x:Name="TopTick" Height="4" SnapsToDevicePixels="True" Placement="Top"/>
+							<Border Grid.Row="1" Margin="4,0" x:Name="Border" Height="7" Background="{DynamicResource ScrollBackBrush}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3"/>
+							
+							<!-- The Track lays out the repeat buttons and thumb -->
+							<Track Grid.Row="1" x:Name="PART_Track" Height="16" Orientation="Vertical" Margin="4">
+								<Track.Thumb>
+									<Thumb Style="{StaticResource MySimpleSliderThumb}" Height="7" Width="38"/>
+								</Track.Thumb>
+								<Track.IncreaseRepeatButton>
+									<RepeatButton Style="{StaticResource MySimpleScrollRepeatButtonStyle}" Command="Slider.IncreaseLarge"/>
+								</Track.IncreaseRepeatButton>
+								<Track.DecreaseRepeatButton>
+									<RepeatButton Style="{StaticResource MySimpleScrollRepeatButtonStyle}" Command="Slider.DecreaseLarge"/>
+								</Track.DecreaseRepeatButton>
+							</Track>
+							
+							<TickBar Visibility="Collapsed" Grid.Row="2" x:Name="BottomTick" Height="4" SnapsToDevicePixels="True" Placement="Bottom" Fill="{TemplateBinding Foreground}"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="TickPlacement" Value="TopLeft">
+								<Setter Property="Visibility" Value="Visible" TargetName="TopTick"/>
+							</Trigger>
+							<Trigger Property="TickPlacement" Value="BottomRight">
+								<Setter Property="Visibility" Value="Visible" TargetName="BottomTick"/>
+							</Trigger>
+							<Trigger Property="TickPlacement" Value="Both">
+								<Setter Property="Visibility" Value="Visible" TargetName="TopTick"/>
+								<Setter Property="Visibility" Value="Visible" TargetName="BottomTick"/>
+							</Trigger>
+							<!-- Use a rotation to create a Vertical Slider form the default Horizontal -->
+							<Trigger Property="Orientation" Value="Vertical">
+								<Setter Property="LayoutTransform" TargetName="GridRoot">
+									<Setter.Value>
+										<RotateTransform Angle="-90"/>
+									</Setter.Value>
+								</Setter>
+								<!-- Track rotates itself based on orientation so need to force it back -->
+								<Setter TargetName="PART_Track" Property="Orientation" Value="Horizontal"/>
+							</Trigger>
+							
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<!---->
+		<FlowDocument x:Key="FD_Intro">
+			<Paragraph>
+				<Run Text="	 "></Run>
+				中科方德软件有限公司是基础软件国家工程研究中心的项目法人单位。基础软件国家工程研究中心是国家发展改革委员会批复(发改高技[2005]425号)由中国科学院软件研究所负责组建的基础软件领域唯一国家级工程技术研究中心，其项目法人单位为中科方德软件有限公司。中科方德总部设在北京，并先后在无锡、重庆、哈尔滨等地设立有分公司，公司总部及其投资控股公司的注册总资金近2亿元人民币，现有员工800余人，形成了一支以科技专家为骨干、年轻的博士硕士为主要一线研发人员的基础软件高端软件研发的工程技术研发队伍。 
+			</Paragraph>
+			<Paragraph>
+				<Run Text="	 "></Run>
+				工程中心以中国科学院软件研究所为技术支撑单位，肩负国家基础软件创新发展的使命，面向国家战略需求、面向世界科技前沿，从事基础软件领域关键技术研 究和产品开发，致力于建设我国自主的基础软件平台体系和应用解决方案，发挥其在基础软件技术上的引领、示范和带动作用。 
+			</Paragraph>
+			<Paragraph>
+				<Run Text="	 "></Run>
+				中科方德作为工程中心的产业化服务实体，主要从事国产安全操作系统系列产品、嵌入式操作系统与开发环境系列产品、应用基础软件平台系列产品和软件工程 工具系列产品的研制、开发与销售。服务领域涉及政府信息化、军工、航空航天、能源、医疗、企业信息化等众多领域。
+			</Paragraph>
+			<Paragraph>
+				<Run Text="	 "></Run>
+				公司秉承“创新求实、开放联合，创新打造精品、服务造福用户”的宗旨，打造可信基础软件旗舰，服务于国家行业信息化建设。 
+			</Paragraph>
+		</FlowDocument>		
+	</UserControl.Resources>
+	<Grid>
+		<Canvas x:Name="LayoutRoot" Background="#00000000" Margin="0,68,0,51" ClipToBounds="True">
+			<StackPanel x:Name="STK_Containner" Canvas.Left="0" Canvas.Top="0" Width="800">
+				<ContentControl>
+					<RichTextBox x:Name="TB_Main" Background="{x:Null}"  FontSize="21" FontFamily="黑体" IsReadOnly="True" Margin="24,0,61.5,0" BorderBrush="{x:Null}" BorderThickness="0" SelectionBrush="{x:Null}" MinHeight="372" Foreground="White">
+						<FlowDocument>
+							<Paragraph>
+								<Run x:Name="R_Text"/>
+							</Paragraph>
+						</FlowDocument>
+					</RichTextBox>
+				</ContentControl>
+			</StackPanel>
+		</Canvas>
+		<TextBlock x:Name="TBK_Title" Margin="0,22.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="黑体" FontSize="29.333" HorizontalAlignment="Center" Foreground="White"><Run Language="zh-cn" Text="公司简介"/></TextBlock>
+		
+		<Slider x:Name="SL_Down"  Height="356" Width="23" Orientation="Vertical" Style="{StaticResource MySimpleSlider}" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Margin="0,0,21,0" Canvas.Left="9" Canvas.Top="13" VerticalAlignment="Center">
+			<Slider.RenderTransform>
+				<RotateTransform Angle="180"/>
+			</Slider.RenderTransform>
+		</Slider>
+		<Canvas x:Name="CA_ExpSL" Margin="0,8" HorizontalAlignment="Right" Width="61" Background="#00000000">
+		</Canvas>
+	</Grid>
+</UserControl>

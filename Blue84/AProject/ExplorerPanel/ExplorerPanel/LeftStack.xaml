@@ -1,0 +1,170 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="ExplorerPanel.LeftStack"
+	x:Name="UserControl"
+	Width="110" Height="420">
+	<UserControl.Resources>
+		<LinearGradientBrush x:Key="DownBanBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FF1F1E1A" Offset="0"/>
+			<GradientStop Color="#FF575652" Offset="0.011"/>
+			<GradientStop Color="#FF2B2A28" Offset="0.574"/>
+			<GradientStop Color="#FF11100E" Offset="0.585"/>
+			<GradientStop Color="#FF101010" Offset="0.989"/>
+			<GradientStop Color="#FF2B2B2B" Offset="1"/>
+		</LinearGradientBrush>
+		<LinearGradientBrush x:Key="BanBackBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FF787878" Offset="0.264"/>
+			<GradientStop Color="#FF565656" Offset="0.991"/>
+		</LinearGradientBrush>
+		<Style x:Key="ButtonStyleDisk" TargetType="{x:Type Button}">
+			<Setter Property="Width" Value="110"/>
+			<Setter Property="Height" Value="110"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<ControlTemplate.Resources>
+							
+							<Storyboard x:Key="Storyboard1">
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PH_Hover">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+								</ObjectAnimationUsingKeyFrames>
+							</Storyboard>
+							
+						</ControlTemplate.Resources>
+						<Grid>
+							<Rectangle Fill="#FF828282" Margin="7" RadiusY="6" RadiusX="6"/>
+							<Path x:Name="PH_Back" Data="M29.71652,5.5300005 L12.029073,5.5924991 5.0289997,23.091996 13.717,23.154499 13.717,30.091999 28.529499,30.091999 28.529499,22.998249 36.653999,22.966996 z M9.0500793,0.05 L32.716923,0.21666917 42.050003,22.800335 42.049999,38.383667 0.21666668,38.55 0.05,22.216999 z" Height="44.6" Canvas.Left="26.742" Stretch="Fill" Stroke="Black" StrokeThickness="0" Canvas.Top="470.95" Width="53.1" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,41"/>
+							<Path x:Name="PH_Hover" Data="M29.71652,5.5300005 L12.029073,5.5924991 5.0289997,23.091996 13.717,23.154499 13.717,30.091999 28.529499,30.091999 28.529499,22.998249 36.653999,22.966996 z M9.0500793,0.05 L32.716923,0.21666917 42.050003,22.800335 42.049999,38.383667 0.21666668,38.55 0.05,22.216999 z" Height="44.6" Canvas.Left="26.742" Stretch="Fill" Stroke="{x:Null}" StrokeThickness="0" Canvas.Top="470.95" Width="53.1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,41" Visibility="Hidden">
+								<Path.Effect>
+									<DropShadowEffect Color="#FFF9C203" BlurRadius="21" Direction="265"/>
+								</Path.Effect>
+								<Path.Fill>
+									<LinearGradientBrush EndPoint="0.038,0.941" StartPoint="1.003,0.936">
+										<GradientStop Color="#FFD98D2D" Offset="0.016"/>
+										<GradientStop Color="#FFE5900F" Offset="0.242"/>
+										<GradientStop Color="#FFF9C203" Offset="0.959"/>
+									</LinearGradientBrush>
+								</Path.Fill>
+							</Path>
+							<Grid ClipToBounds="True"  VerticalAlignment="Stretch" Margin="0,60,0,0">
+								<TextBlock FontSize="19" TextAlignment="Center" Text="{TemplateBinding Content}" Margin="7,3,7,0" TextWrapping="Wrap" VerticalAlignment="Top"></TextBlock>
+							</Grid>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<EventTrigger RoutedEvent="Mouse.MouseEnter">
+								<BeginStoryboard x:Name="Storyboard1_BeginStoryboard" Storyboard="{StaticResource Storyboard1}"/>
+							</EventTrigger>
+							<EventTrigger RoutedEvent="Mouse.MouseLeave">
+								<RemoveStoryboard BeginStoryboardName="Storyboard1_BeginStoryboard"/>
+							</EventTrigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="ButtonStyleDir" TargetType="{x:Type Button}">
+			<Setter Property="Width" Value="110"/>
+			<Setter Property="Height" Value="110"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<ControlTemplate.Resources>
+							
+							<Storyboard x:Key="Storyboard1">
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PH_Hover">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+								</ObjectAnimationUsingKeyFrames>
+							</Storyboard>
+							
+						</ControlTemplate.Resources>
+						<Grid>
+							<Rectangle Fill="#FF828282" Margin="7" RadiusY="6" RadiusX="6"/>
+							<Path Data="M106.30002,23.144001 C107.80002,23.331501 109.67502,26.081501 109.36252,26.956501 L106.3625,89.174758 C106.3625,89.674758 106.29974,90.1435 105.425,90.331 L5.0916663,90.185172 C4.2166667,89.809981 3.425,90.0185 2.8624993,88.519004 L0.05,27.269001 C0.05,25.062837 1.217743,23.269001 3.4249997,23.269001 z M13.206227,0.05 L43.508236,0.10233383 C45.299999,0.081499863 46.581249,1.0502499 46.612392,2.4562901 L46.612392,6.4877499 C46.936878,7.9479187 47.862694,8.8032549 49.341553,9.1023338 L103.45621,9.1752508 C104.83186,9.1752508 105.86266,11.769001 105.73774,15.082 L4.0500121,14.956741 3.9249997,10.851919 C4.2959714,9.7603224 5.0160961,8.993697 6.0499945,8.5186823 L9.2791539,8.4978474 C10.6125,8.5033758 11.285501,7.6156223 11.174981,5.7685478 L11.143731,1.862315 C11.07311,0.67433434 11.83125,0.050249863 13.206227,0.05 z" Height="47.417" Margin="28.667,9.75,28.5,0" Stretch="Fill" StrokeThickness="0"   Fill="White" VerticalAlignment="Top" Visibility="Visible"/>
+							<Path x:Name="PH_Hover" Data="M106.30002,23.144001 C107.80002,23.331501 109.67502,26.081501 109.36252,26.956501 L106.3625,89.174758 C106.3625,89.674758 106.29974,90.1435 105.425,90.331 L5.0916663,90.185172 C4.2166667,89.809981 3.425,90.0185 2.8624993,88.519004 L0.05,27.269001 C0.05,25.062837 1.217743,23.269001 3.4249997,23.269001 z M13.206227,0.05 L43.508236,0.10233383 C45.299999,0.081499863 46.581249,1.0502499 46.612392,2.4562901 L46.612392,6.4877499 C46.936878,7.9479187 47.862694,8.8032549 49.341553,9.1023338 L103.45621,9.1752508 C104.83186,9.1752508 105.86266,11.769001 105.73774,15.082 L4.0500121,14.956741 3.9249997,10.851919 C4.2959714,9.7603224 5.0160961,8.993697 6.0499945,8.5186823 L9.2791539,8.4978474 C10.6125,8.5033758 11.285501,7.6156223 11.174981,5.7685478 L11.143731,1.862315 C11.07311,0.67433434 11.83125,0.050249863 13.206227,0.05 z" Height="47.417" Margin="28.667,9.75,28.5,0" Stretch="Fill" StrokeThickness="0"  VerticalAlignment="Top" Visibility="Hidden">
+								<Path.Effect>
+									<DropShadowEffect Color="#FFF9C203" BlurRadius="21" Direction="265"/>
+								</Path.Effect>
+								<Path.Fill>
+									<LinearGradientBrush EndPoint="0.038,0.941" StartPoint="1.003,0.936">
+										<GradientStop Color="#FFD98D2D" Offset="0.016"/>
+										<GradientStop Color="#FFE5900F" Offset="0.242"/>
+										<GradientStop Color="#FFF9C203" Offset="0.959"/>
+									</LinearGradientBrush>
+								</Path.Fill>
+							</Path>
+							<Grid ClipToBounds="True"  VerticalAlignment="Stretch" Margin="0,60,0,7">
+								<TextBlock FontSize="17" TextAlignment="Center" Text="{TemplateBinding Content}" Margin="7,0" TextWrapping="Wrap" VerticalAlignment="Stretch"></TextBlock>
+							</Grid>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<EventTrigger RoutedEvent="Mouse.MouseEnter">
+								<BeginStoryboard x:Name="Storyboard1_BeginStoryboard" Storyboard="{StaticResource Storyboard1}"/>
+							</EventTrigger>
+							<EventTrigger RoutedEvent="Mouse.MouseLeave">
+								<RemoveStoryboard BeginStoryboardName="Storyboard1_BeginStoryboard"/>
+							</EventTrigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="UpButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid Background="{TemplateBinding Background}">
+							<Path Data="M19.511328,7.4364897 L39.334,22 0,22 z" Fill="{TemplateBinding Foreground}" Height="8.897"  Stretch="Fill"  Width="22.751" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="DownButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid Background="{TemplateBinding Background}">
+							<Path Data="M19.5,21.833 L41.083333,7.6663492 -0.99999999,7.5830158 z" Fill="{TemplateBinding Foreground}" Height="8.897"  Stretch="Fill"  Width="22.751" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
+	<Grid  Background="#FF949494" >
+		<Grid.RowDefinitions>
+			<RowDefinition Height="45"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="45"/>
+		</Grid.RowDefinitions>
+		
+		<Canvas x:Name="LayoutRoot" Grid.Row="1" ClipToBounds="True" Margin="0">
+			<StackPanel x:Name="STK_MainOut" VerticalAlignment="Top"  HorizontalAlignment="Left" Width="110" Canvas.Left="0" Canvas.Top="0">
+				<Button x:Name="BTN_Root" Style="{DynamicResource ButtonStyleDisk}" Grid.Row="1" VerticalAlignment="Top" Content="根磁盘"></Button>
+				<StackPanel x:Name="STK_Main" VerticalAlignment="Top"  HorizontalAlignment="Left" Width="110" Canvas.Left="0" Canvas.Top="0">
+					
+				</StackPanel>
+			</StackPanel>
+		</Canvas>
+		<Button x:Name="BTN_Up" Style="{DynamicResource UpButtonStyle}" Foreground="White" Background="#00000000"/>
+		<Button x:Name="BTN_Down" Grid.Row="2" Style="{DynamicResource DownButtonStyle}" Foreground="White" Background="#00000000"/>
+	</Grid>
+</UserControl>

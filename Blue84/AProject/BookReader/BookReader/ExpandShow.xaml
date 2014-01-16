@@ -1,0 +1,129 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:BookReader"
+	mc:Ignorable="d"
+	x:Class="BookReader.ExpandShow"
+	x:Name="UserControl" Width="800" Height="480"
+	>
+	<UserControl.Resources>
+		<Style x:Key="DownPlayButtonStyle1" TargetType="{x:Type Button}">
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="Height" Value="50"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="Width" Value="50"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<ControlTemplate.Resources>
+							<Storyboard x:Key="Storyboard1">
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+								</ObjectAnimationUsingKeyFrames>
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid Background="#00000000">
+							<ContentPresenter Margin="0"></ContentPresenter>
+							
+							<Ellipse x:Name="ellipse" Margin="-11,0" Visibility="Hidden">
+								<Ellipse.Fill>
+									<RadialGradientBrush RadiusX="0.387" RadiusY="0.365">
+										<GradientStop Color="#FDFFEA00"/>
+										<GradientStop Color="#00FFEA00" Offset="1"/>
+										<GradientStop Color="#46FFEA00" Offset="0.619"/>
+										<GradientStop Color="#7BFFEA00" Offset="0.288"/>
+										<GradientStop Color="#17FFEA00" Offset="0.86"/>
+									</RadialGradientBrush>
+								</Ellipse.Fill>
+							</Ellipse>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True">
+							</Trigger>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Trigger.EnterActions>
+									<BeginStoryboard x:Name="Storyboard1_BeginStoryboard" Storyboard="{StaticResource Storyboard1}"/>
+								</Trigger.EnterActions>
+								<Trigger.ExitActions>
+									<RemoveStoryboard BeginStoryboardName="Storyboard1_BeginStoryboard"/>
+								</Trigger.ExitActions>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="True">
+								
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="False"/>
+							<Trigger Property="IsCancel" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<DoubleAnimation x:Key="ANI_Rotate" RepeatBehavior="Forever"  Duration="0:0:0.8" From="-180" To="180"/>
+	</UserControl.Resources>
+	<Grid>
+		<Canvas x:Name="LayoutRoot">
+			<Canvas.Background>
+				<ImageBrush ImageSource="Pictures/ExpanderShow/exback2.jpg"/>
+			</Canvas.Background>
+			<StackPanel x:Name="STK_Containner" Canvas.Left="0" Canvas.Top="0" Width="800">
+				<TextBox x:Name="TB_Main" Background="{x:Null}" TextWrapping="Wrap" FontSize="21" FontFamily="黑体" IsReadOnly="True" Margin="24,6,43.5,0" BorderBrush="{x:Null}" BorderThickness="0" SelectionBrush="{x:Null}" MinHeight="474" Cursor="Arrow"/>
+			</StackPanel>
+		</Canvas>
+		<Ellipse x:Name="EP_Buffering" Width="50" Height="50" Canvas.Left="381" Canvas.Top="263" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center">
+			<Ellipse.RenderTransform>
+				<RotateTransform x:Name="RTF_Buffering" Angle="-180"/>
+			</Ellipse.RenderTransform>
+			<Ellipse.Fill>
+				<ImageBrush Stretch="Fill" ImageSource="Pictures/ExpanderShow/Preloader128x128.png"/>
+			</Ellipse.Fill>
+		</Ellipse>
+		<Grid x:Name="GD_Console" Canvas.Left="132.385" Canvas.Top="498.5"  Width="493.6" Height="60" VerticalAlignment="Bottom" Margin="0,0,0,10">
+			<Grid.Background>
+				<ImageBrush ImageSource="Pictures/ExpanderShow/musicbarback.png"/>
+			</Grid.Background>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.2*"/>
+				<ColumnDefinition Width="0.15*"/>
+				<ColumnDefinition Width="0.15*"/>
+				<ColumnDefinition Width="0.15*"/>
+				<ColumnDefinition Width="0.15*"/>
+				<ColumnDefinition Width="0.2*"/>
+			</Grid.ColumnDefinitions>
+			<Rectangle Margin="-45,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="33" Width="1" Fill="Black" Grid.Column="1"/>
+			<Rectangle Margin="-43,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="33" Width="1" Fill="#FF8D8D8D" Grid.Column="1"/>
+			<Rectangle Margin="0,0,-32,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="33" Width="1" Fill="Black" Grid.Column="4" d:LayoutOverrides="GridBox"/>
+			<Rectangle Margin="0,0,-34,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="33" Width="1" Fill="#FF8D8D8D" Grid.Column="4"/>
+			<Button x:Name="BTN_Back" Grid.ColumnSpan="1"  Style="{DynamicResource DownPlayButtonStyle1}" Margin="21,0,0,0" >
+				<Path Data="M16.095624,21.488946 L16.095624,26.1832 33.441634,26.076406 C41.005159,26.150375 41.210411,3.7667931 33.535816,3.3516825 L16.284167,3.3516825 16.284167,-1.2355111 34.163924,-1.2650631 C46.404263,-1.369405 46.483623,30.505864 33.748112,30.397257 L16.189895,30.557392 15.90708,35.14453 6.9512597,28.316465 z" Fill="White" Height="25.4" Stretch="Fill" Width="35.2" Canvas.Left="17.909" Canvas.Top="358.6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			</Button>
+			<Button x:Name="BTN_Delete" Grid.ColumnSpan="1" Style="{DynamicResource DownPlayButtonStyle1}"  Grid.Column="1" Visibility="Collapsed" >
+				<Path Data="M27.4165,21.812 C26.427082,21.811999 25.625,22.70743 25.625,23.811999 L25.625,40.959 C25.625,42.063568 26.427082,42.959 27.4165,42.959 28.405918,42.959 29.208,42.063568 29.208,40.959 L29.208,23.811999 C29.208,22.70743 28.405918,21.811999 27.4165,21.812 z M19.8335,21.812 C18.844082,21.811999 18.042,22.70743 18.042,23.811999 L18.042,40.959 C18.042,42.063568 18.844082,42.959 19.8335,42.959 20.822918,42.959 21.625,42.063568 21.625,40.959 L21.625,23.811999 C21.625,22.70743 20.822918,21.811999 19.8335,21.812 z M12.2505,21.812 C11.261082,21.811999 10.459,22.70743 10.459,23.811999 L10.459,40.959 C10.459,42.063568 11.261082,42.959 12.2505,42.959 13.239918,42.959 14.042,42.063568 14.042,40.959 L14.042,23.811999 C14.042,22.70743 13.239918,21.811999 12.2505,21.812 z M4.5419999,17.521999 L35.542,17.521999 35.542,48.417 4.5419999,48.417 z M14.417,3.1253328 C13.838875,3.125082 13.218183,3.6877174 13.208667,4.5836658 L13.208667,5.9169989 26.370125,5.838875 26.375332,4.6253328 C26.36911,3.9081697 25.844082,3.1823816 25.250332,3.1669989 z M26.479668,0 C30.26075,0.041999817 30.282568,3.3216333 30.312832,5.8961658 L37.271168,5.9586658 C38.406582,5.9694166 39.349792,7.2761765 39.333668,7.9794989 L39.375,14.479999 0,14.385499 0.041999817,8.0419989 C0.052666187,7.2709846 0.63202739,5.9705515 1.7919998,5.9586658 L9.1878338,5.9169989 C9.2199597,3.4914293 9.1669998,0.22949982 12.646334,0.083662033 z" Height="30" Canvas.Left="26.742" Stretch="Fill" StrokeThickness="0" Canvas.Top="216" Width="30" Fill="White"/>
+			</Button>
+			<Button x:Name="BTN_Font" Grid.ColumnSpan="1"  Style="{DynamicResource DownPlayButtonStyle1}"  Grid.Column="5" Margin="-26,0,0,0" >
+				<Path Data="M66.443871,24.538 L44.361,65.287667 71.444,65.288002 z M60.246094,0 L84.388367,0.031810801 99.626999,104.63721 76.05912,104.63721 73.282776,82.950974 34.130131,82.765976 22.57682,104.919 0,104.63721 z" Height="30" Canvas.Left="210.418" Stretch="Fill" StrokeThickness="0" Canvas.Top="216" Width="30" Fill="White" />
+			</Button>
+			<Button Name="BTN_Pause" Style="{StaticResource DownPlayButtonStyle1}" Margin="0" d:LayoutOverrides="GridBox" Width="50" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+				<Path Grid.Column="3" Data="M11.751,0 L13.501,0 C14.60557,0 15.501,0.89543051 15.501,2 L15.501,18.000999 C15.501,19.10557 14.60557,20.000999 13.501,20.000999 L11.751,20.000999 C10.646431,20.000999 9.7510004,19.10557 9.7510003,18.000999 L9.7510003,2 C9.7510004,0.89543051 10.646431,0 11.751,0 z M2.0000005,0 L3.7500005,0 C4.8545699,0 5.7500005,0.89543051 5.7500005,2 L5.7500005,18.000999 C5.7500005,19.10557 4.8545699,20.000999 3.7500005,20.000999 L2.0000005,20.000999 C0.89543056,20.000999 0,19.10557 0,18.000999 L0,2 C0,0.89543051 0.89543056,0 2.0000005,0 z" Fill="White" Margin="0" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Width="15" Height="20"/>
+			</Button>
+			<Button x:Name="BTN_SysBegin" Grid.ColumnSpan="1"  Style="{DynamicResource DownPlayButtonStyle1}" Grid.Column="2" >
+				<Path x:Name="PH_Play" Data="M0.07574921,1.75 L21.726251,13.999997 0.07574921,26.125 z" Fill="White" Stretch="Fill" Width="21.652" Margin="0" Height="24.376" Canvas.Left="176" Canvas.Top="150.978" />
+			</Button>
+			<Button x:Name="BTN_Stop" Grid.ColumnSpan="1"  Style="{DynamicResource DownPlayButtonStyle1}" Grid.Column="3" >
+				<Rectangle Fill="White" Height="18.5" Canvas.Left="95.758" StrokeThickness="0" Canvas.Top="352.667" Width="19.4"/>
+			</Button>
+		</Grid>
+		
+		<local:MyProgressBar x:Name="SL_Bar" HorizontalAlignment="Right" Margin="0,31,18.5,23.833" Orientation="Vertical" Width="21" RenderTransformOrigin="0.5,0.5" Opacity="1" >
+			<local:MyProgressBar.RenderTransform>
+				<RotateTransform Angle="-180"/>
+			</local:MyProgressBar.RenderTransform>
+		</local:MyProgressBar>
+		<Canvas x:Name="CA_ExpSL" Margin="0,8" HorizontalAlignment="Right" Width="54" Background="#00000000">
+			
+		</Canvas>
+		
+	</Grid>
+</UserControl>

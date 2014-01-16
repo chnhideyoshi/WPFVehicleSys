@@ -1,0 +1,65 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="VideoPanel.CoverFlow"
+	x:Name="UserControl" xmlns:_3DTools="clr-namespace:_3DTools;assembly=3DTools" 
+	d:DesignWidth="640" d:DesignHeight="480" Width="765" Height="344">
+	<UserControl.Resources>
+	<BitmapImage x:Key="BI_Imagesouce" UriSource="Pictures/SwitchShow/videoBack.png"/>
+	<ImageBrush x:Key="BI_Image" ImageSource="{StaticResource BI_Imagesouce}"/>
+	<Style x:Key="ControlStyle1" TargetType="{x:Type Control}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Control}">
+						<StackPanel Orientation="Vertical">
+							<Grid x:Name="___rec_main1">
+								<Rectangle Width="Auto" Height="{Binding ActualWidth, ElementName=___rec_main1}" Fill="{StaticResource BI_Image}"></Rectangle>
+								<Rectangle  HorizontalAlignment="Stretch" Margin="4,13,4,14" StrokeThickness="0" Fill="{TemplateBinding Background}"/>
+							</Grid>
+							<Rectangle x:Name="path"   HorizontalAlignment="Stretch" Margin="0" Opacity="0.745" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Stroke="White" StrokeThickness="0" VerticalAlignment="Stretch" Width="Auto" Height="{Binding ActualHeight, ElementName=___rec_main1}" >
+								<Rectangle.Fill>
+									<VisualBrush  Visual="{Binding ElementName=___rec_main1}"/>
+								</Rectangle.Fill>
+								<Rectangle.OpacityMask>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0.25">
+										<GradientStop Color="Transparent" Offset="0.542" />
+										<GradientStop Color="#7E000000"    Offset="1" />
+									</LinearGradientBrush>
+								</Rectangle.OpacityMask>
+								<Rectangle.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform ScaleY="-1"/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Rectangle.RenderTransform>
+							</Rectangle>
+						</StackPanel>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
+	<Grid x:Name="LayoutRoot">
+		<_3DTools:Interactive3DDecorator>
+			<Viewport3D x:Name="viewport3D">
+				<!--摄像机-->
+				<Viewport3D.Camera>
+					<PerspectiveCamera x:Name="Camera" Position="0,0.5,9"/>
+				</Viewport3D.Camera>
+				<!--灯光-->
+				<ModelVisual3D>
+					<ModelVisual3D.Content>
+						<AmbientLight Color="White"/>
+					</ModelVisual3D.Content>
+				</ModelVisual3D>
+			</Viewport3D>
+		</_3DTools:Interactive3DDecorator>
+		<Canvas HorizontalAlignment="Left" Width="287" Background="#00000000"></Canvas>
+		<Canvas HorizontalAlignment="Right" Width="287" Background="#00000000"></Canvas>
+	</Grid>
+</UserControl>

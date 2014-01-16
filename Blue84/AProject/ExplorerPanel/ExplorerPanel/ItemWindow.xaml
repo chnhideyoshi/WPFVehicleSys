@@ -1,0 +1,114 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="ExplorerPanel.ItemWindow"
+	x:Name="Window"
+	Title="ItemWindow"
+	Height="480" Width="800" AllowsTransparency="True" Background="{x:Null}" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+	<Window.Resources>
+		<Style x:Key="ProgressBarStyle1" TargetType="{x:Type ProgressBar}">
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Foreground" Value="{DynamicResource LColorDarkLightOver}"/>
+			<Setter Property="Background" Value="{DynamicResource DefaultedBorderBrush}"/>
+			<Setter Property="BorderBrush" Value="White"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ProgressBar}">
+						<Grid x:Name="TemplateRoot" SnapsToDevicePixels="true">
+							<Rectangle Fill="{TemplateBinding Background}" RadiusY="7" RadiusX="7" Margin="0"/>
+							<Rectangle x:Name="PART_Track" Margin="1"/>
+							<Decorator x:Name="PART_Indicator" HorizontalAlignment="Left" Margin="0,1,1,1">
+								<Grid x:Name="Foreground" Margin="0" Visibility="Visible">
+									<Border x:Name="Indicator" Background="{TemplateBinding Foreground}" CornerRadius="7,0,0,7" />
+									<Grid x:Name="Animation" Visibility="Collapsed">
+									</Grid>
+								</Grid>
+							</Decorator>
+							<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="7"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<LinearGradientBrush x:Key="LColorDarkLightOver" EndPoint=".7,1" StartPoint=".7,0">
+	        <GradientStop Color="#FF97CA00" Offset="0"/>
+	        <GradientStop Color="#FFFFFD7E" Offset="0.7"/>
+	        <GradientStop Color="#FFAADF0B" Offset="0.29499998688697815"/>
+	    </LinearGradientBrush>
+		<LinearGradientBrush x:Key="DefaultedBorderBrush" EndPoint="0,1" StartPoint="0,0">
+	        <GradientStop Color="#777" Offset="0.0"/>
+	        <GradientStop Color="#000" Offset="1.0"/>
+	    </LinearGradientBrush>
+		<Style x:Key="DownButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontSize" Value="19"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<ControlTemplate.Resources>
+							<Storyboard x:Key="OnMouseEnter1">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+									<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid Margin="0,1,0,2" Background="#00000000">
+							<Rectangle x:Name="rectangle" RadiusY="4" RadiusX="2" Opacity="0">
+								<Rectangle.Fill>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#FF676F78" Offset="0.017"/>
+										<GradientStop Color="#FF0054C4" Offset="1"/>
+									</LinearGradientBrush>
+								</Rectangle.Fill></Rectangle>
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<EventTrigger RoutedEvent="Mouse.MouseLeave">
+								<RemoveStoryboard BeginStoryboardName="OnMouseEnter1_BeginStoryboard"/>
+							</EventTrigger>
+							<EventTrigger RoutedEvent="Mouse.MouseEnter">
+								<BeginStoryboard x:Name="OnMouseEnter1_BeginStoryboard" Storyboard="{StaticResource OnMouseEnter1}"/>
+							</EventTrigger>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+	<Grid x:Name="OverLay" Background="#B2000000">
+		<Grid x:Name="GD_Items" Width="280" HorizontalAlignment="Center" VerticalAlignment="Center" Height="280">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="0.8*"/>
+				<RowDefinition Height="0.2*"/>
+			</Grid.RowDefinitions>
+			<Rectangle x:Name="rectangle" Stroke="White" RadiusY="4" RadiusX="4" StrokeThickness="1.8" Fill="#B3000000" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+			<Line x:Name="line" X2="280" Y2="{Binding Y1, ElementName=line}" Stroke="{Binding Stroke, ElementName=rectangle}" StrokeThickness="1.8" Grid.ColumnSpan="2" Grid.Row="1"/> 
+			
+			<ContentControl x:Name="CC_Main" Margin="3,3,3,0" Foreground="White" FontSize="18.667" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" >
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="0.25*"/>
+						<RowDefinition Height="0.25*"/>
+						<RowDefinition Height="0.25*"/>
+						<RowDefinition Height="0.25*"/>
+					</Grid.RowDefinitions>
+					<Line x:Name="line1" X2="280" Y2="{Binding Y1, ElementName=line1}" Stroke="{Binding Stroke, ElementName=rectangle}" StrokeThickness="1.8" Grid.ColumnSpan="2" Grid.Row="1"/>   
+					<Line x:Name="line2" X2="280" Y2="{Binding Y1, ElementName=line2}" Stroke="{Binding Stroke, ElementName=rectangle}" StrokeThickness="1.8" Grid.ColumnSpan="2" Grid.Row="2"/>
+					<Line x:Name="line3" X2="280" Y2="{Binding Y1, ElementName=line3}" Stroke="{Binding Stroke, ElementName=rectangle}" StrokeThickness="1.8" Grid.ColumnSpan="2" Grid.Row="3"/>  
+					<Button x:Name="BTN_ImageIm" Content="导入到图片文件夹" Grid.Row="0" Style="{StaticResource DownButtonStyle}"  FontFamily="黑体" Margin="0"/>
+					<Button x:Name="BTN_VideoIm" Content="导入到视频文件夹" Grid.Row="1" Style="{StaticResource DownButtonStyle}"  FontFamily="黑体" Margin="0"/>
+					<Button x:Name="BTN_MusicIm" Content="导入到音乐文件夹" Grid.Row="2" Style="{StaticResource DownButtonStyle}"  FontFamily="黑体" Margin="0"/>
+					<Button x:Name="BTN_BookIm" Content="导入到图书文件夹" Grid.Row="3" Style="{StaticResource DownButtonStyle}"  FontFamily="黑体" Margin="0"/>		
+				</Grid>
+			</ContentControl>
+			<Button x:Name="BTN_Ok" Content="取消" Grid.Row="1" Style="{StaticResource DownButtonStyle}"  FontFamily="黑体" Margin="0"/>
+		
+		</Grid>
+	</Grid>
+</Window>

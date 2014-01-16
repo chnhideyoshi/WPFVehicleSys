@@ -1,0 +1,14 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="VideoPanel.VideoConsole3"
+	x:Name="Window"
+	xmlns:mediaControl="clr-namespace:AxWMPLib;assembly=AxInterop.WMPLib" 
+	Title="VideoConsole3"
+	Width="800" Height="480" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+	<Grid x:Name="LayoutRoot" Background="Black">
+		<WindowsFormsHost x:Name="WFH_Main">
+			 
+		</WindowsFormsHost>
+	</Grid>
+</Window>

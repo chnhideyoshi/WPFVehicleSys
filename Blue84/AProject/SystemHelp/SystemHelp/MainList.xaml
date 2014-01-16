@@ -1,0 +1,160 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="SystemHelp.MainList"
+	x:Name="UserControl"
+	Width="800" Height="480">
+	<UserControl.Resources>
+		<Style x:Key="ItemButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid Background="#00000000">
+							<Rectangle StrokeThickness="0" RadiusY="27" RadiusX="27">
+								<Rectangle.Fill>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#FFFED257" Offset="0"/>
+										<GradientStop Color="#FFFE9100" Offset="1"/>
+									</LinearGradientBrush>
+								</Rectangle.Fill>
+							</Rectangle>
+							<Ellipse x:Name="ellipse" HorizontalAlignment="Left" Stroke="#FFFC7004" StrokeThickness="1.5" Width="{Binding ActualHeight, ElementName=ellipse}" Fill="White"/>
+							<ContentPresenter HorizontalAlignment="Left" Width="{Binding ActualWidth, ElementName=ellipse}"/>
+							<TextBlock   Margin="26,2,-2,0" TextWrapping="Wrap" Text="{TemplateBinding Tag}" FontFamily="黑体" FontSize="19" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF9B3500"/>
+							<TextBlock x:Name="TBK_mAIN"  Margin="26,0,0,0" TextWrapping="Wrap" Text="{TemplateBinding Tag}" FontFamily="黑体" FontSize="19" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="Margin" Value="0"/>
+			<Setter Property="Height" Value="54.898"/>
+			<Setter Property="VerticalAlignment" Value="center"/>
+			<Setter Property="HorizontalAlignment" Value="center"/>
+			<Setter Property="Width" Value="267"/>
+			<Setter Property="FontFamily" Value="黑体"/>
+			<Setter Property="Foreground" Value="#FF9B3500"/>
+		</Style>
+	</UserControl.Resources>
+	<Grid>
+		<Grid x:Name="LayoutRoot" ClipToBounds="True" Margin="51,0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="0.2*"/>
+				<RowDefinition Height="0.15*"/>
+				<RowDefinition Height="0.15*"/>
+				<RowDefinition Height="0.15*"/>
+				<RowDefinition Height="0.15*"/>
+				<RowDefinition Height="0.2*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="0.5*"/>
+			</Grid.ColumnDefinitions>
+			<Button x:Name="BTN_Video" Tag="视频播放帮助" Style="{DynamicResource ItemButtonStyle}" Grid.Row="1">
+				<Path Data="M12.058,36.537003 L12.058,39.895001 38.666,39.895001 38.666,36.537003 z M12.058,29.079001 L12.058,32.437 38.666,32.437 38.666,29.079001 z M48.664085,19.455999 L48.986999,49.924 0.8520003,49.736504 0.88324952,28.612377 9.945671,19.550247 z M0.59300036,13.069 L7.0499992,19.403668 0.75799984,25.862 z M17.424934,7.383 L11.362,8.6744405 14.90392,14.57 20.820999,13.424501 z M30.132999,4.9239999 L24.257999,6.1119991 27.695499,12.487001 33.507999,11.143251 z M43.070499,2.5499998 L36.724998,3.5794414 40.257999,9.9090005 46.007999,8.8620006 z M46.101761,0.05 L47.716,10.257677 8.7163333,17.924 0.05,8.7783414 z" Height="29" Canvas.Left="197.381" Stretch="Fill" Stroke="Black" Canvas.Top="399.625" Width="28" HorizontalAlignment="Center" VerticalAlignment="Center" StrokeThickness="0">
+					<Path.Fill>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFFFCE59" Offset="0.013"/>
+							<GradientStop Color="#FFFB8118" Offset="0.919"/>
+							<GradientStop Color="#FFE07A24" Offset="0.973"/>
+							<GradientStop Color="#FFB86518" Offset="1"/>
+						</LinearGradientBrush>
+					</Path.Fill>
+				</Path>
+			</Button>
+			<Button x:Name="BTN_GPS" Tag="GPS帮助" Style="{DynamicResource ItemButtonStyle}" Grid.Column="1" Grid.Row="2" >
+				<Path Data="M20.576817,39.853073 L20.408234,39.859497 C20.238014,39.863827 20.067261,39.866001 19.896,39.866001 L19.819498,39.865028 20.214054,40.125 z M20.030802,14.05 C16.468565,14.05 13.587253,16.937763 13.595211,20.5 13.603169,24.062237 16.497383,26.950001 20.05962,26.950001 23.621857,26.950001 26.50317,24.062237 26.495211,20.5 26.487253,16.937763 23.593039,14.05 20.030802,14.05 z M19.896,0.05 C30.856644,0.05 39.742001,8.9631147 39.742001,19.958 39.742001,22.019541 39.429626,24.007895 38.849766,25.878031 L38.731102,26.244665 39.057499,26 20.277443,68.5 2.5751159,29.673803 2.4453051,29.447334 C0.91771059,26.626505 0.04999997,23.393902 0.05,19.958 0.049999929,8.9631147 8.9353571,0.05 19.896,0.05 z" Height="34.5" Stretch="Fill"  Width="27.8">
+					<Path.Fill>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFFFCE59" Offset="0.013"/>
+							<GradientStop Color="#FFFB8118" Offset="0.919"/>
+							<GradientStop Color="#FFE07A24" Offset="0.973"/>
+							<GradientStop Color="#FFB86518" Offset="1"/>
+						</LinearGradientBrush>
+					</Path.Fill>
+				</Path>
+			</Button>
+			<Button x:Name="BTN_Music" Tag="音乐播放帮助"  Style="{DynamicResource ItemButtonStyle}" Grid.Row="4">
+				<Path Data="M4.7420001,2.1669999 L41.179501,-3.3329999 41.680164,46.072734 C41.55466,52.041422 29.054603,56.916371 23.991878,51.853924 19.804192,46.54148 22.804325,37.354075 36.783882,39.291716 L36.67649,12.647083 10.550882,16.897055 9.8665891,52.666627 C9.8667172,56.97915 -4.0506972,64.541104 -9.1338483,55.228871 -11.258911,50.541438 -5.44652,42.479022 4.6998023,45.208344 z" Height="30.9"  Stretch="Fill" Width="25.8" Margin="-8,0,0,0">
+					<Path.Fill>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFFFCE59" Offset="0.013"/>
+							<GradientStop Color="#FFFB8118" Offset="0.919"/>
+							<GradientStop Color="#FFE07A24" Offset="0.973"/>
+							<GradientStop Color="#FFB86518" Offset="1"/>
+						</LinearGradientBrush>
+					</Path.Fill>
+				</Path>
+			</Button>
+			<Button x:Name="BTN_Book" Tag="书籍阅读帮助" Style="{DynamicResource ItemButtonStyle}" Grid.Row="3">
+				<Path Data="M11.599999,50.956997 L53.167001,50.956997 53.167001,57.356998 11.599999,57.356998 z M11.599999,39.514999 L53.167001,39.514999 53.167001,45.914997 11.599999,45.914997 z M11.599999,29.015001 L53.167001,29.015001 53.167001,35.415001 11.599999,35.415001 z M4.9250038,23.257002 L4.8000038,62.132004 C4.8333366,65.882004 11.466668,66.965332 23.216669,65.465332 21.383335,75.548668 22.883335,81.798668 26.55,83.499001 L57.250001,83.499001 57.250001,23.265001 z M57.133321,3.5499997 L63.217,3.6333323 62.55,88.715996 20.799921,88.632294 0.13321381,67.79866 0.05,3.7983363 6.0500019,3.7986691 5.9875,9.2570009 C4.1125019,13.6945 6.6749981,17.9445 11.758336,18.173668 16.799999,17.8195 19.862501,12.5695 17.674999,8.8820019 L17.716667,3.8820002 24.966666,3.7986691 25.112498,8.8820019 C24.566692,13.172958 25.557594,15.855116 28.049999,16.965334 30.603231,18.704517 33.069719,18.540829 35.466668,16.881998 38.083975,15.208956 38.735792,12.469738 37.362497,8.632 L37.216619,3.8823357 45.549966,3.7990007 45.675,8.507 C43.112501,14.0695 46.675,18.3195 51.049977,18.29961 53.55,18.632 55.450757,17.400803 56.925,15.257 57.9875,13.8195 58.623254,11.060717 57.028619,8.2963572 z M51.612,0.05 C53.379311,0.05 54.811999,1.840861 54.811999,4.0500007 L54.811999,11.211001 C54.811999,13.420139 53.379311,15.211 51.612,15.211 49.844689,15.211 48.412,13.420139 48.412,11.211001 L48.412,4.0500007 C48.412,1.840861 49.844689,0.05 51.612,0.05 z M31.55,0.05 C33.317311,0.05 34.75,1.840861 34.749999,4.0500007 L34.749999,11.211001 C34.75,13.420139 33.317311,15.211 31.55,15.211 29.782689,15.211 28.35,13.420139 28.35,11.211001 L28.35,4.0500007 C28.35,1.840861 29.782689,0.05 31.55,0.05 z M11.675,0.05 C13.442311,0.05 14.875,1.840861 14.875,4.0500007 L14.875,11.211001 C14.875,13.420139 13.442311,15.211 11.675,15.211 9.9076889,15.211 8.4749992,13.420139 8.4749992,11.211001 L8.4749992,4.0500007 C8.4749992,1.840861 9.9076889,0.05 11.675,0.05 z" Height="28.4" Stretch="Fill"  Width="21.7">
+					<Path.Fill>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFFFCE59" Offset="0.013"/>
+							<GradientStop Color="#FFFB8118" Offset="0.919"/>
+							<GradientStop Color="#FFE07A24" Offset="0.973"/>
+							<GradientStop Color="#FFB86518" Offset="1"/>
+						</LinearGradientBrush>
+					</Path.Fill>
+				</Path>
+			</Button>
+			<Button x:Name="BTN_Picture" Tag="图片浏览帮助" Style="{DynamicResource ItemButtonStyle}" Grid.Row="2">
+				<Path Data="M18.686321,14.688 L31.686781,27.562718 36.395283,20.33343 53.187,34.375 9.5200005,34.417 9.5616674,30.291931 z M46.670502,9.5500004 C49.119053,9.5500004 51.104,11.448984 51.104,13.7915 51.104,16.134016 49.119053,18.033001 46.670502,18.033001 44.221947,18.033001 42.237,16.134016 42.237,13.7915 42.237,11.448984 44.221947,9.5500004 46.670502,9.5500004 z M6.1540003,5.5500004 L6.1540003,37.700001 59.762001,37.700001 59.762001,5.5500004 z M0.05,0.05 L65.762001,0.05 65.762001,43.450001 0.05,43.450001 z" Height="25" Stretch="Fill"  Width="26.2" >
+					<Path.Fill>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFFFCE59" Offset="0.013"/>
+							<GradientStop Color="#FFFB8118" Offset="0.919"/>
+							<GradientStop Color="#FFE07A24" Offset="0.973"/>
+							<GradientStop Color="#FFB86518" Offset="1"/>
+						</LinearGradientBrush>
+					</Path.Fill>
+				</Path>
+			</Button>
+			<Button x:Name="BTN_FM" Tag="FM收音机帮助" Style="{DynamicResource ItemButtonStyle}" Grid.Column="1" Grid.Row="3">
+				<Path Data="M24.907001,26.299 C26.152403,26.299 27.162001,27.350907 27.162001,28.6485 27.162001,29.946093 26.152403,30.998 24.907001,30.998 23.661598,30.998 22.652,29.946093 22.652001,28.6485 22.652,27.350907 23.661598,26.299 24.907001,26.299 z M25.445082,17.775172 C28.736808,17.797196 32.111342,19.926774 34.141,25.855901 L30.914429,26.775207 C29.313445,20.284359 21.392788,19.603353 19.033354,27.264 L16,25.902013 C16,22.212727 20.634098,17.742983 25.445082,17.775172 z M25.140016,9.1831131 C31.398832,9.1592846 38.00965,12.880219 42.574999,22.382403 L39.180454,23.585192 C35.15729,15.480551 21.201937,3.9561844 11.144025,24.535 L7.8400002,23.517731 C9.6277943,15.434714 17.092966,9.2137527 25.140016,9.1831131 z M25.805678,0.00068855286 C35.661837,-0.080219269 45.224205,6.9780693 50.449999,20.922544 L47.270727,21.595303 C37.398259,-2.121912 14.432214,-3.257309 3.3633347,21.892999 L0,20.586164 C6.4239044,6.8641415 16.252786,0.079105377 25.805678,0.00068855286 z" Height="23" Stretch="Fill" Width="35.4">
+					<Path.Fill>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFFFCE59" Offset="0.013"/>
+							<GradientStop Color="#FFFB8118" Offset="0.919"/>
+							<GradientStop Color="#FFE07A24" Offset="0.973"/>
+							<GradientStop Color="#FFB86518" Offset="1"/>
+						</LinearGradientBrush>
+					</Path.Fill>
+				</Path>
+			</Button>
+			<Button x:Name="BTN_Explorer" Tag="资源管理帮助" Style="{DynamicResource ItemButtonStyle}" Grid.Column="1" Grid.Row="1">
+				<Path Data="M106.30002,23.144001 C107.80002,23.331501 109.67502,26.081501 109.36252,26.956501 L106.3625,89.174758 C106.3625,89.674758 106.29974,90.1435 105.425,90.331 L5.0916663,90.185172 C4.2166667,89.809981 3.425,90.0185 2.8624993,88.519004 L0.05,27.269001 C0.05,25.062837 1.217743,23.269001 3.4249997,23.269001 z M13.206227,0.05 L43.508236,0.10233383 C45.299999,0.081499863 46.581249,1.0502499 46.612392,2.4562901 L46.612392,6.4877499 C46.936878,7.9479187 47.862694,8.8032549 49.341553,9.1023338 L103.45621,9.1752508 C104.83186,9.1752508 105.86266,11.769001 105.73774,15.082 L4.0500121,14.956741 3.9249997,10.851919 C4.2959714,9.7603224 5.0160961,8.993697 6.0499945,8.5186823 L9.2791539,8.4978474 C10.6125,8.5033758 11.285501,7.6156223 11.174981,5.7685478 L11.143731,1.862315 C11.07311,0.67433434 11.83125,0.050249863 13.206227,0.05 z" Height="26.7"  Stretch="Fill"  Width="28.4">
+					<Path.Fill>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFFFCE59" Offset="0.013"/>
+							<GradientStop Color="#FFFB8118" Offset="0.919"/>
+							<GradientStop Color="#FFE07A24" Offset="0.973"/>
+							<GradientStop Color="#FFB86518" Offset="1"/>
+						</LinearGradientBrush>
+					</Path.Fill>
+				</Path>
+			</Button>
+			<Button x:Name="BTN_Product" Tag="关于本产品" Style="{DynamicResource ItemButtonStyle}" Grid.Column="1" Grid.Row="4">
+				<Path Data="M18.780003,18.609001 C22.558441,21.249214 27.197058,21.386866 32.53,19.504483 L29.218,31.25425 C23.785552,33.767617 19.073544,33.507177 15.155,30.19177 z M10.139806,14.739242 C12.510652,14.755445 14.691541,15.586604 16.675001,17.264782 L13.113,29.328001 C10.125658,26.807594 5.8195093,26.156534 0.05,28.140484 L3.4255007,16.577769 C5.80807,15.34513 8.0478828,14.724945 10.139806,14.739242 z M23.050003,4.1810005 C26.82844,6.8212135 31.467057,6.9588659 36.8,5.0764826 L33.488,16.826249 C28.055551,19.339618 23.343544,19.079176 19.425,15.76377 z M14.389806,0.050242233 C16.760652,0.06644516 18.941541,0.89760475 20.925,2.5757816 L17.363,14.639001 C14.375658,12.118595 10.069509,11.467534 4.3,13.451484 L7.6755002,1.888768 C10.05807,0.65612869 12.297883,0.035944748 14.389806,0.050242233 z" Height="32.987" Stretch="Fill"  Width="36.85">
+					<Path.Fill>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFFFCE59" Offset="0.013"/>
+							<GradientStop Color="#FFFB8118" Offset="0.919"/>
+							<GradientStop Color="#FFE07A24" Offset="0.973"/>
+							<GradientStop Color="#FFB86518" Offset="1"/>
+						</LinearGradientBrush>
+					</Path.Fill>
+				</Path>
+			</Button>
+		</Grid>
+	</Grid>
+</UserControl>
